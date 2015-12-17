@@ -1,0 +1,7 @@
+<div class="recipes">
+  {{#each model.recipes as |recipe|}}
+    {{#link-to 'recipe' recipe.id}}
+      {{recipe.title}}
+    {{/link-to}}
+  {{/each}}
+</div>

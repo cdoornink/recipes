@@ -1,0 +1,46 @@
+<div class="recipe-page" style="background-image: url({{model.background}})">
+  <div class='overlay'></div>
+  <div class="recipe-header">
+    <div class='title'>
+      {{model.title}}
+    </div>
+    <div class="recipe-stats">
+      {{#if model.prepTime}}
+        Prep Time <span class='statNum'>{{model.prepTime}}</span>
+      {{/if}}
+      {{#if model.cookTime}}
+        Cook Time <span class='statNum'>{{model.cookTime}}</span>
+      {{/if}}
+      {{#if model.serves}}
+        Serves <span class='statNum'>{{model.serves}}</span>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="ingredients">
+    <div class="section-header">
+      ingredients
+    </div>
+    {{#each model.ingredients as |i|}}
+      <div class="ingredient">
+        <div class="amount">
+          {{i.amount}}
+        </div>
+        <div class="name">
+          {{i.name}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="instructions">
+    <div class="section-header">
+      instructions
+    </div>
+    {{#each model.instructions as |i|}}
+    <div class="instruction">
+      {{i}}
+    </div>
+    {{/each}}
+  </div>
+</div>
