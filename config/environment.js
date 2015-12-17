@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'recipes',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/recipes/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -25,6 +25,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.baseURL = '/'
   }
 
   if (environment === 'test') {

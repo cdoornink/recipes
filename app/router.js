@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('group', {path: '/group/:id'});
+  this.route('recipe', {path: '/recipe/:id'});
 });
 
 export default Router;
