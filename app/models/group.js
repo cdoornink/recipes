@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 var Group = DS.Model.extend({
   name: DS.attr('string'),
-  recipes: DS.hasMany('recipe', {key: 'recipes'})
+  recipes: DS.hasMany('recipe', {key: 'recipes', async: true})
 });
 
 Group.reopenClass({

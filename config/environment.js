@@ -1,11 +1,14 @@
 /* jshint node: true */
+firebase: 'https://glowing-heat-8207.firebaseio.com/'
 
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'recipes',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
     baseURL: '/recipes/',
-    locationType: 'auto',
+    locationType: 'hash',
+    firebase: 'https://glowing-heat-8207.firebaseio.com/',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

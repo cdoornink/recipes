@@ -1,5 +1,8 @@
 <div class="recipe-page" style="background-image: url({{model.background}})">
-  <div class='overlay'></div>
+  <a class='back-button' style="cursor:pointer" {{action 'back'}}>
+    <div class="icon-arrow-left2"></div>
+    Back
+  </a>
   <div class="recipe-header">
     <div class='title'>
       {{model.title}}

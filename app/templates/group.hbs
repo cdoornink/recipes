@@ -1,7 +1,49 @@
-<div class="recipes">
-  {{#each model.recipes as |recipe|}}
-    {{#link-to 'recipe' recipe.id}}
-      {{recipe.title}}
-    {{/link-to}}
-  {{/each}}
+<div class="group-page">
+  <a class='back-button' style="cursor:pointer" {{action 'back'}}>
+    <div class="icon-arrow-left2"></div>
+    Back
+  </a>
+  <div class="recipes">
+    <div class="group-title">
+      {{model.name}}
+    </div>
+    {{#each model.recipes as |recipe|}}
+      {{#link-to 'recipe' recipe.id class='recipe'}}
+        <div class="image" style="background-image: url({{recipe.background}})"></div>
+        <div class="title">{{recipe.title}}</div>
+      {{/link-to}}
+    {{/each}}
+  </div>
+  <div class="shopping-list">
+    <div class="header">
+      Groceries (date here)
+    </div>
+    <div class="menu">
+      {{#each list.menu as |item i|}}
+        {{#if i}}
+          <div class="menu-item">
+            {{i}}: {{item}}
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+    {{!-- <div class="aisle produce">
+      {{#each-in list.produce as |name menu-item|}}
+        {{name}} ({{menu-item}})
+      {{/each-in}}
+    </div> --}}
+  </div>
 </div>
+
+{{!-- // produce
+// rice
+// bread
+// post bread
+// meat
+// dairy
+// cheese
+// freezer
+// baking
+// pasta
+// beans
+// soup --}}

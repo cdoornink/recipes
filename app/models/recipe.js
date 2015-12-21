@@ -184,7 +184,7 @@ Recipe.reopenClass({
         {amount: '1 cup', name: 'chicken breasts', aisle: 'meat'},
         {amount: '1 cup', name: 'bacon', aisle: 'cheese'},
         {amount: '1/3 cup', name: 'thinly sliced red onions', aisle: 'produce'},
-        {amount: '2/3 cup', name: 'mozzarella cheese', aisle: 'fridge'},
+        {amount: '2/3 cup', name: 'mozzarella cheese', aisle: 'dairy'},
         {amount: '1 Tbsp', name: 'fresh oregano', aisle: 'produce'},
         {amount: '1 Tbsp', name: 'fresh chives', aisle: 'produce'},
         {amount: '1 Tbsp', name: 'fresh parsley', aisle: 'produce'},

@@ -1,16 +1,35 @@
-{{outlet}}
-<div class="recipes-list">
-  {{#each recipes as |recipe|}}
-    {{#link-to 'recipe' recipe.id}}
-      {{recipe.shortTitle}}
-    {{/link-to}}
-  {{/each}}
-</div>
+<div class="home-page">
+  {{!-- <div class='header'>
+    <div class="title">
+      Recipes
+    </div>
+  </div> --}}
 
-<div class="groups">
-  {{#each groups as |group|}}
-    {{#link-to 'group' group.id}}
-      {{group.name}}
-    {{/link-to}}
-  {{/each}}
+  <div class="recipes-list">
+    {{#each recipes as |recipe|}}
+      {{#link-to 'recipe' recipe.id}}
+        <div class='recipe-link-item'>
+          {{recipe.shortTitle}}
+        </div>
+      {{/link-to}}
+    {{/each}}
+  </div>
+
+  <div class="groups">
+    <a class="drawer-icon" style="cursor:pointer" {{action 'toggleMenu'}}>
+      <div class="icon-menu"></div>
+    </a>
+    {{#each groups as |group|}}
+      {{#link-to 'group' group.id class='group'}}
+        <div class="images">
+          {{#each group.recipes as |recipe|}}
+            <div class="image" style="background-image: url({{recipe.background}})"></div>
+          {{/each}}
+        </div>
+        <div class="name">
+          {{group.name}}
+        </div>
+      {{/link-to}}
+    {{/each}}
+  </div>
 </div>
