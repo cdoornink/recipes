@@ -1,0 +1,106 @@
+.home-page {
+  .recipes-list, .groups {
+    a {
+      display: block;
+    }
+  }
+  background: #00ABBF;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .recipes-list {
+    float: left;
+    height: 100%;
+    width: 300px;
+    background: #eee;
+    padding: 5px;
+    overflow: auto;
+    a {
+      width: 100%;
+      background: white;
+      margin-bottom: 2px;
+      .recipe-link-item {
+        color: #321;
+        font-size: 17px;
+        padding: 10px;
+      }
+      &:active {
+        background: #444;
+        .recipe-link-item {
+          color: #bbb;
+        }
+      }
+    }
+  }
+  .groups {
+    height: 100%;
+    overflow: auto;
+    padding-top: 30px;
+    a.drawer-icon {
+      display: none;
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      width: 25px;
+      height: 25px;
+      font-size: 25px;
+      color: white;
+      &:active {
+        text-decoration: none;
+        background: none;
+        color: #aaa;
+      }
+    }
+    a.group {
+      float: left;
+      margin: 20px 10px;
+      width: 320px;
+      padding: 10px;
+      background: white;
+    }
+    .images {
+      height: 200px;
+      width: 300px;
+      background: #eee;
+      overflow: hidden;
+    }
+    .image {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background-position: center;
+      background-size: cover;
+    }
+    .name {
+      padding: 10px 5px 0;
+      font-size: 20px;
+      color: #333;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .home-page {
+    .groups a.drawer-icon {
+      display: block;
+    }
+    .recipes-list {
+      position: absolute;
+      top: 0;
+      left: -300px;
+    }
+    .groups a.group {
+      float: none;
+      margin: 20px auto;
+    }
+    .recipes-list, .groups {
+      -webkit-transition: -webkit-transform .5s;
+      transition: transform .5s;
+    }
+  }
+  .home-page.open {
+    .recipes-list, .groups {
+      -webkit-transform: translate3d(300px, 0, 0);
+      transform: translate3d(300px, 0, 0);
+    }
+  }
+}

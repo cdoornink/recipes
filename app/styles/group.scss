@@ -1,0 +1,40 @@
+.group-page {
+  background: linear-gradient(to bottom, #00ABBF, #40FBFF);
+  background: #00ABBF;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  .recipes {
+    width: 80%;
+    margin: 0px auto;
+    .group-title {
+      text-align: center;
+      font-size: 30px;
+      color: white;
+      font-weight: 200;
+      padding: 10px;
+    }
+    .recipe {
+      display: block;
+      width: 100%;
+      height: 80px;
+      background: white;
+      overflow: hidden;
+      margin: 10px 0;
+      position: relative;
+      .image {
+        float: left;
+        width: 20%;
+        height: 80px;
+        background-position: center;
+        background-size: cover;
+        margin-right: 20px;
+      }
+      .title {
+        font-size: 20px;
+        padding: 24px 10px;
+        color: #333;
+      }
+    }
+  }
+}
