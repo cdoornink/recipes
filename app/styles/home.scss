@@ -5,17 +5,31 @@
     }
   }
   background: #00ABBF;
+  background: url('/images/home-background.jpg');
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  // .header {
+  //   background: linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.4));
+  // }
+  // .title {
+  //   @include titleFont;
+  //   font-size: 26px;
+  //   text-align: center;
+  //   color: white;
+  //   font-weight: 300;
+  // }
   .recipes-list {
     float: left;
     height: 100%;
     width: 300px;
     background: #eee;
-    padding: 5px;
+    background: rgba(0,0,0,.6);
+    padding: 25px 5px 10px;
     overflow: auto;
-    a {
+    a.recipe-list-link {
       width: 100%;
       background: white;
       margin-bottom: 2px;
@@ -35,12 +49,13 @@
   .groups {
     height: 100%;
     overflow: auto;
-    padding-top: 30px;
+    padding: 40px 15px;
+    background: rgba(0,0,0,.4);
     a.drawer-icon {
       display: none;
       position: absolute;
       left: 8px;
-      top: 8px;
+      top: 28px;
       width: 25px;
       height: 25px;
       font-size: 25px;
@@ -57,6 +72,8 @@
       width: 320px;
       padding: 10px;
       background: white;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 3px 6px rgba(0,0,0,.2);
     }
     .images {
       height: 200px;
@@ -72,9 +89,22 @@
       background-size: cover;
     }
     .name {
+      @include titleFont;
       padding: 10px 5px 0;
       font-size: 20px;
       color: #333;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .home-page {
+    .groups a.group {
+      float: none;
+      margin: 20px auto;
+    }
+
+    .groups {
+      padding: 50px 0px;
     }
   }
 }
@@ -87,6 +117,10 @@
       position: absolute;
       top: 0;
       left: -300px;
+    }
+    .groups {
+      padding: 50px 0px;
+      background: rgba(0,0,0,.4);
     }
     .groups a.group {
       float: none;

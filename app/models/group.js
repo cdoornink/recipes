@@ -2,7 +2,19 @@ import DS from 'ember-data';
 
 var Group = DS.Model.extend({
   name: DS.attr('string'),
-  recipes: DS.hasMany('recipe', {key: 'recipes', async: true})
+  recipes: DS.hasMany('recipe', {key: 'recipes', async: true}),
+  lists: DS.hasMany('list', {key: 'lists', async: true}),
+  current: Ember.computed('lists', function() {
+    let current = false
+    if (this.get('lists')) {
+      this.get('lists').forEach(function(i,o){
+        if (i.id == 'current') {
+          current = true
+        }
+      })
+    }
+    return current
+  })
 });
 
 Group.reopenClass({

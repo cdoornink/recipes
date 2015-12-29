@@ -1,17 +1,22 @@
 .group-page {
   background: linear-gradient(to bottom, #00ABBF, #40FBFF);
   background: #00ABBF;
+  background: url('/images/home-background.jpg');
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 100%;
   overflow: auto;
   .recipes {
     width: 80%;
     margin: 0px auto;
+    position: relative;
     .group-title {
+      @include titleFont;
       text-align: center;
       font-size: 30px;
       color: white;
-      font-weight: 200;
+      font-weight: 400;
       padding: 10px;
     }
     .recipe {
@@ -34,6 +39,26 @@
         font-size: 20px;
         padding: 24px 10px;
         color: #333;
+      }
+    }
+    .recipe.add-to-list {
+      height: 40px;
+      .image {
+        width: 40px;
+        padding: 10px 13px;
+        margin: 0;
+        color: $second_color;
+      }
+      .title {
+        padding: 5px 10px;
+        color: $second_color;
+        font-weight: 300;
+      }
+    }
+    .recipe.add-to-list.current {
+      background: $second_color;
+      .image, .title {
+        color: white;
       }
     }
   }

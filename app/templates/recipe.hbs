@@ -1,9 +1,9 @@
-<div class="recipe-page" style="background-image: url({{model.background}})">
+<div class="recipe-page">
   <a class='back-button' style="cursor:pointer" {{action 'back'}}>
     <div class="icon-arrow-left2"></div>
-    Back
   </a>
-  <div class="recipe-header">
+  <div class="recipe-header" style="background-image: url({{model.background}})">
+    <div class="header-overlay"></div>
     <div class='title'>
       {{model.title}}
     </div>
@@ -32,6 +32,11 @@
         <div class="name">
           {{i.name}}
         </div>
+        {{#if i.section}}
+          <div class="section">
+            {{i.section}}:
+          </div>
+        {{/if}}
       </div>
     {{/each}}
   </div>

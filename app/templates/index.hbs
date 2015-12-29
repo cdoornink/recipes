@@ -1,13 +1,14 @@
 <div class="home-page">
   {{!-- <div class='header'>
     <div class="title">
-      Recipes
+      recipes
     </div>
   </div> --}}
 
   <div class="recipes-list">
+    {{list-filter listClass='.recipe-list-link'}}
     {{#each recipes as |recipe|}}
-      {{#link-to 'recipe' recipe.id}}
+      {{#link-to 'recipe' recipe.id class='recipe-list-link'}}
         <div class='recipe-link-item'>
           {{recipe.shortTitle}}
         </div>
@@ -19,6 +20,13 @@
     <a class="drawer-icon" style="cursor:pointer" {{action 'toggleMenu'}}>
       <div class="icon-menu"></div>
     </a>
+
+    {{#link-to 'current-list' class="list"}}
+      Current List
+    {{/link-to}}
+    {{#link-to 'current-list' class="list"}}
+      Last List
+    {{/link-to}}
     {{#each groups as |group|}}
       {{#link-to 'group' group.id class='group'}}
         <div class="images">

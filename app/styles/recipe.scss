@@ -4,6 +4,7 @@
   background-position: center;
   background-size: cover;
   overflow: auto;
+  color: #444;
   // .overlay {
   //   width: 100%;
   //   height: 100%;
@@ -13,20 +14,38 @@
   // }
   .recipe-header {
     width: 100%;
-    padding: 10px;
+    height: 310px;
     background: rgba(255,255,255,.9);
-    color: #444;
+    color: white;
     text-align: center;
     margin-bottom: 20px;
     position: relative;
+    background-position: center;
+    background-size: cover;
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.4))
+    }
     .title {
+      @include titleFont;
       font-size: 5vw;
       font-weight: 200;
-      margin: -4px 60px;
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
     }
     .recipe-stats {
       font-size: 20px;
       font-weight: 200;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
       .statNum {
         margin-right: 10px;
         font-weight: 500;
@@ -34,9 +53,11 @@
     }
   }
   .section-header {
-    font-size: 36px;
+    @include titleFont;
+    font-size: 30px;
     text-transform: capitalize;
     font-weight: 200;
+    color: #444;
   }
   .ingredients {
     float: left;
@@ -60,6 +81,10 @@
       display: inline;
       font-size: 17px;
       font-weight: 300;
+    }
+    .section {
+      margin-top: 10px;
+      font-size: 19px;
     }
   }
   .instructions {
@@ -85,3 +110,22 @@
     }
   }
 }
+@media (max-width: 600px) {
+  .recipe-page {
+    .recipe-header .recipe-stats {
+      font-size: 3.5vw;
+    }
+    .ingredients, .instructions {
+      width: calc(100% - 100px);
+      margin: 10px 50px;
+    }
+    .recipe-header .title {
+      font-size: 30px;
+    }
+  }
+}
+// @media (min-width: 700px) {
+//   .recipe-page .recipe-header .title {
+//     font-size: 34px;
+//   }
+// }

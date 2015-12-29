@@ -1,24 +1,39 @@
 <div class="group-page">
+  <div class="overlay"></div>
   <a class='back-button' style="cursor:pointer" {{action 'back'}}>
     <div class="icon-arrow-left2"></div>
-    Back
   </a>
   <div class="recipes">
     <div class="group-title">
       {{model.name}}
     </div>
+    {{#if model.current}}
+      <div class='recipe add-to-list current'>
+        <div class="image"><div class="icon-checkmark"></div></div>
+        <div class="title">Added to the current Grocery List</div>
+      </div>
+    {{else}}
+      <a style="cursor:pointer" class='recipe add-to-list' {{action 'addGroupToList'}}>
+        <div class="image"><div class="icon-plus"></div></div>
+        <div class="title">Add {{model.name}} to the current Grocery List</div>
+      </a>
+    {{/if}}
     {{#each model.recipes as |recipe|}}
       {{#link-to 'recipe' recipe.id class='recipe'}}
         <div class="image" style="background-image: url({{recipe.background}})"></div>
         <div class="title">{{recipe.title}}</div>
       {{/link-to}}
     {{/each}}
+
   </div>
-  <div class="shopping-list">
+  {{!-- <div class="shopping-list">
     <div class="header">
-      Groceries (date here)
+      Grocery List (date here)
     </div>
     <div class="menu">
+      <div class="menu-header">
+        Menu
+      </div>
       {{#each list.menu as |item i|}}
         {{#if i}}
           <div class="menu-item">
@@ -27,23 +42,24 @@
         {{/if}}
       {{/each}}
     </div>
-    {{!-- <div class="aisle produce">
-      {{#each-in list.produce as |name menu-item|}}
-        {{name}} ({{menu-item}})
-      {{/each-in}}
-    </div> --}}
-  </div>
+    <div class="col1">
+      {{menu-aisle name="Produce" items=list.produce}}
+      {{menu-aisle name="Rice" items=list.rice}}
+      {{menu-aisle name="Bread" items=list.bread}}
+      {{menu-aisle name="Post Bread" items=list.postBread}}
+      {{menu-aisle name="Meat" items=list.meat}}
+    </div>
+    <div class="col2">
+      {{menu-aisle name="Dairy" items=list.dairy}}
+      {{menu-aisle name="Cheese" items=list.cheese}}
+      {{menu-aisle name="Freezer" items=list.freezer}}
+      {{menu-aisle name="Baking" items=list.baking}}
+      {{menu-aisle name="Pasta" items=list.pasta}}
+      {{menu-aisle name="Beans" items=list.beans}}
+      {{menu-aisle name="Soup" items=list.soup}}
+    </div>
+    <div class="col3">
+      {{menu-aisle name="Staples" items=list.staples}}
+    </div>
+  </div> --}}
 </div>
-
-{{!-- // produce
-// rice
-// bread
-// post bread
-// meat
-// dairy
-// cheese
-// freezer
-// baking
-// pasta
-// beans
-// soup --}}

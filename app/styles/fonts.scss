@@ -55,3 +55,30 @@
     src: url(/fonts/AvenirNext-Regular.ttf);
     font-weight: 400;
 }
+
+
+@font-face {
+    font-family: titleFont;
+    src: url('/fonts/Sofia-Regular.otf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: titleFont;
+    src: url('/fonts/black_jack.ttf');
+    font-weight: 200; //recipe headers
+}
+@font-face {
+    font-family: titleFont;
+    src: url('/fonts/bombshell Pro.ttf');
+    font-weight: 300; // main header
+}
+@font-face {
+    font-family: titleFont;
+    src: url('/fonts/RockSalt.ttf');
+    font-weight: 400; // group names
+}
+@font-face {
+    font-family: titleFont;
+    src: url('/fonts/JandaAppleCobblerSolid.ttf');
+    font-weight: 500;
+}
