@@ -1,0 +1,15 @@
+{{#if items}}
+  <div class="aisle {{name}}">
+    <div class="aisle-header">
+      {{name}}
+    </div>
+    {{#each items as |item|}}
+      <a style="cursor:pointer" class="item {{if item.checkedOff 'checked-off'}}" {{action 'item-click' item}}>
+        <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div>
+        <div class="item-text">
+          {{item.name}} {{#if item.recipe}}({{item.recipe}}){{/if}}
+        </div>
+      </a>
+    {{/each}}
+  </div>
+{{/if}}

@@ -1,0 +1,34 @@
+<div class="shopping-list">
+  <div class="header">
+    My Grocery List
+  </div>
+  {{#if model.groups}}
+  <div class="menu">
+    <div class="menu-header">
+      Menu
+    </div>
+    {{#each list.menu as |item i|}}
+      {{#if i}}
+        <div class="menu-item">
+          {{i}}: {{item}}
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+  {{/if}}
+  <div class="col1">
+    {{menu-aisle name="Produce" items=list.produce}}
+    {{menu-aisle name="Rice" items=list.rice}}
+    {{menu-aisle name="Bread" items=list.bread}}
+    {{menu-aisle name="Post Bread" items=list.postBread}}
+    {{menu-aisle name="Meat" items=list.meat}}
+    {{menu-aisle name="Dairy" items=list.dairy}}
+    {{menu-aisle name="Cheese" items=list.cheese}}
+    {{menu-aisle name="Freezer" items=list.freezer}}
+    {{menu-aisle name="Baking" items=list.baking}}
+    {{menu-aisle name="Pasta" items=list.pasta}}
+    {{menu-aisle name="Beans" items=list.beans}}
+    {{menu-aisle name="Soup" items=list.soup}}
+    {{menu-aisle name="Staples" items=list.staples}}
+  </div>
+</div>

@@ -1,0 +1,100 @@
+.dialog-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.6);
+  top: 0;
+}
+
+.dialog {
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  max-width: 500px;
+  margin: 10% auto;
+  background: white;
+  padding: 40px;
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: $second_color;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    .icon-cross {
+      color: white;
+      padding: 9px;
+    }
+  }
+  form {
+    transition: transform .5s, opacity .5s;
+    -webkit-transition: -webkit-transform .5s, opacity .5s;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+    z-index: 1000;
+    position: relative;
+  }
+  .title {
+    margin-top: 8px;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: $second_color;
+  }
+  .input-field {
+    margin: 30px 0 40px;
+    input {
+      outline: none;
+      padding: 9px;
+      font-size: 20px;
+      border: none;
+      background: #eee;
+      width: 100%;
+    }
+  }
+  button.submit-button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    float: right;
+    font-size: 20px;
+    background: $second_color;
+    color: white;
+    padding: 10px 40px;
+  }
+  .confirmation {
+    opacity: 0;
+    transition: transform .5s, opacity .5s;
+    -webkit-transition: -webkit-transform .5s, opacity .5s;
+    -webkit-transform: scale3d(.4, .4, 1);
+    transform: scale3d(.4, .4, 1);
+    position: absolute;
+    top: 100px;
+    width: calc(100% - 80px);
+    text-align: center;
+    color: $second_color;
+    .text {
+      font-size: 30px;
+    }
+    .icon-cloud-check {
+      font-size: 100px;
+    }
+  }
+}
+.dialog.confirming {
+  form {
+    opacity: 0;
+    -webkit-transform: scale3d(1.7, 1.7, 1);
+    transform: scale3d(1.7, 1.7, 1);
+  }
+  .confirmation {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.dialog.add-to-list {
+  min-height: 273px;
+}

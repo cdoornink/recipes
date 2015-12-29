@@ -1,0 +1,19 @@
+<div class="dialog-container">
+  <div class="dialog add-to-list">
+    <div style="cursor:pointer" class="close-button" {{action "closeAddToList"}}>
+      <div class="icon-cross"></div>
+    </div>
+    <div class="title">
+      Add an item to your shopping list.
+    </div>
+    <form>
+      <div class="input-field">
+        {{input value=itemToAdd placeholder="Add an Item"}}
+      </div>
+      <button class="submit-button" {{action 'addToList' itemToAdd}}>Add</button>
+    </form>
+    <div class="confirmation">
+      <div class="icon-cloud-check"></div>
+    </div>
+  </div>
+</div>

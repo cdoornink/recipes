@@ -1,0 +1,77 @@
+.shopping-list {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: auto;
+  position: relative;
+  .header {
+    @include titleFont;
+    font-size: 28px;
+    font-weight: 200;
+    color: $second-color;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .menu {
+    @include titleFont;
+    margin: 10px 0;
+    padding: 10px 20px 15px;
+    background: $second-color;
+    color: white;
+    font-size: 20px;
+    .menu-item {
+      @include brandonFont;
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 21px;
+    }
+  }
+  .aisle {
+    margin: 15px 20px;
+    .aisle-header {
+      @include titleFont;
+      font-size: 18px;
+      color: $second-color;
+    }
+    .item {
+      display: block;
+      @include avenirFont;
+      font-size: 21px;
+      overflow: hidden;
+      line-height: 35px;
+      .item-box, .item-text {
+        float: left;
+      }
+      .item-box {
+        font-size: 19px;
+        line-height: 35px;
+        color: $second_color;
+        margin-right: 8px;
+      }
+    }
+    .item.checked-off {
+      .item-text {
+        text-decoration: line-through;
+        color: $second_color;
+      }
+    }
+  }
+}
+@media print {
+  .recipes, .back-button {
+    display: none;
+  }
+  .shopping-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    .menu {
+      background: #eee;
+    }
+  }
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+}
