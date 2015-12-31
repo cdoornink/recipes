@@ -52,6 +52,13 @@
         color: $second_color;
         margin-right: 8px;
       }
+      .recipe-ref {
+        @include brandonFont;
+        font-size: 17px;
+        color: $second_color;
+        font-weight: 500;
+        margin-left: 5px;
+      }
     }
     .item.checked-off {
       .item-text {
@@ -78,7 +85,7 @@
   }
 }
 .shopping-list.last-list {
-  .header, .aisle .aisle-header {
+  .header, .aisle .aisle-header, .aisle .item .recipe-ref {
     color: $first_color;
   }
   .menu {

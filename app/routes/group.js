@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   // setupController: function(controller, model) {
   //   this._super(controller, model)
   //   model.get('recipes').then(function(recipes) {
-  //     let iList = {'menu': [''], 'produce': {}, 'rice': {}, 'bread': {}, 'postBread': {}, 'meat': {}, 'dairy': {}, 'cheese': {}, 'freezer': {}, 'baking': {}, 'pasta': {}, 'beans': {}, 'soup': {}}
+  //     let iList = {'menu': [''], 'produce': {}, 'bulk': {}, 'bread': {}, 'snacks': {}, 'meat': {}, 'dairy': {}, 'cheese': {}, 'freezer': {}, 'baking': {}, 'pasta': {}, 'beans': {}, 'soup': {}}
   //     recipes.forEach(function(recipe, i) {
   //
   //       iList['menu'].push(recipe.get('title'))
@@ -30,9 +30,9 @@ export default Ember.Route.extend({
   //     iList.staples = [{name: 'little tomatoes'},{name: 'bananas'},{name: 'avocados'},{name: 'lettuce'},{name: 'cucumber'},{name: 'broccoli'},{name: 'berries'},{name: 'bell pepper'},{name: 'bread'},{name: 'crackers'},{name: 'applesauce'},{name: 'pecans'},{name: 'yogurt'},{name: 'string cheese'},{name: 'almond butter'},{name: 'peanut butter'},{name: 'honey'},{name: 'chocolate chips'},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''}]
   //
   //     iList.produce   = $.map(iList.produce,    function(item, name) {return {name: name, recipe: item}})
-  //     iList.rice      = $.map(iList.rice,       function(item, name) {return {name: name, recipe: item}})
+  //     iList.bulk      = $.map(iList.bulk,       function(item, name) {return {name: name, recipe: item}})
   //     iList.bread     = $.map(iList.bread,      function(item, name) {return {name: name, recipe: item}})
-  //     iList.postBread = $.map(iList.postBread,  function(item, name) {return {name: name, recipe: item}})
+  //     iList.snacks = $.map(iList.snacks,  function(item, name) {return {name: name, recipe: item}})
   //     iList.meat      = $.map(iList.meat,       function(item, name) {return {name: name, recipe: item}})
   //     iList.dairy     = $.map(iList.dairy,      function(item, name) {return {name: name, recipe: item}})
   //     iList.cheese    = $.map(iList.cheese,     function(item, name) {return {name: name, recipe: item}})

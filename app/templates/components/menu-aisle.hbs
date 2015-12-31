@@ -9,7 +9,7 @@
           <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div>
         {{/unless}}
         <div class="item-text">
-          {{item.name}} {{#if item.recipe}}({{item.recipe}}){{/if}}
+          {{item.name}} {{#if item.recipe}} <span class='recipe-ref'>{{item.recipe}}</span>{{/if}}
         </div>
       </a>
     {{/each}}

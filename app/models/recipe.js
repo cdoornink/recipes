@@ -23,7 +23,7 @@ var Recipe = DS.Model.extend({
 
 // AISLES
 // produce
-// rice
+// bulk
 // bread
 // post bread
 // meat
@@ -221,8 +221,8 @@ Recipe.reopenClass({
         {amount: '2', name: 'lettuce', aisle: 'produce'},
         {amount: '1 Tbsp', name: 'tomato', aisle: 'produce'},
         {amount: '2 Tbsp', name: 'avocado', aisle: 'produce'},
-        {name: 'small corn tortillas', aisle: 'postBread'},
-        {amount: 'handfuls of', name: 'corn chips', aisle: 'postBread'},
+        {name: 'small corn tortillas', aisle: 'bread'},
+        {amount: 'handfuls of', name: 'corn chips', aisle: 'snacks'},
         {name: 'chicken breast', aisle: 'meat'},
         {name: 'sour cream', aisle: 'cheese'},
         {name: 'salsa', aisle: 'cheese'},
@@ -404,7 +404,7 @@ Recipe.reopenClass({
     },
     {
       id: 'chicken-casserole',
-      title: 'Cheesy Chicken and Wild Rice Casserole',
+      title: 'Cheesy Chicken and Wild rice Casserole',
       groups: [5],
       serves: 8,
       thumb: '/images/thumbs/chicken-casserole.jpg',
@@ -417,8 +417,8 @@ Recipe.reopenClass({
         {amount: '3', name: 'carrots', aisle: 'produce'},
         {amount: '2 Tablespoons', name: 'garlic'},
         {amount: '2 Cups', name: 'chicken breast', aisle: 'meat'},
-        {amount: '2 Cups', name: 'white rice', aisle: 'rice'},
-        {amount: '16 oz', name: 'wild rice', aisle: 'rice'},
+        {amount: '2 Cups', name: 'white rice', aisle: 'bulk'},
+        {amount: '16 oz', name: 'wild rice', aisle: 'bulk'},
         {amount: '1 teaspoon', name: 'salt'},
         {amount: '1/2 teaspoon', name: 'black pepper'},
         {amount: '1/4 teaspoon', name: 'garlic salt'},
@@ -508,13 +508,13 @@ Recipe.reopenClass({
         {amount: '4-6', name: 'chicken breasts', aisle: 'meat'},
         {amount: '1 cup', name: 'packed brown sugar'},
         {amount: '2/3 cup', name: 'vinegar'},
-        {amount: '1/4 cup', name: '7Up', aisle: 'postBread'},
+        {amount: '1/4 cup', name: '7Up', aisle: 'snacks'},
         {amount: '2-3 Tablespoons', name: 'minced garlic'},
         {amount: '2 Tablespoons', name: 'soy sauce'},
         {amount: '1 teaspoon', name: 'fresh ground pepper'},
         {amount: '2 Tablespoons', name: 'corn starch'},
         {amount: '2 Tablespoons', name: 'water'},
-        {name: 'Rice, cooked'},
+        {name: 'rice, cooked'},
         {name: 'Red pepper flakes (optional)'},
         {name: 'side vegetable', aisle: 'produce'}
       ],
@@ -543,7 +543,7 @@ Recipe.reopenClass({
         {amount: '1/2 teaspoon', name: 'garlic salt'},
         {amount: '2 cups', name: 'montery jack shredded', aisle: 'cheese'},
         {name: 'Sour cream', aisle: 'cheese'},
-        {amount: '6 burrito-sized', name: 'flour tortillas', aisle: 'postBread'},
+        {amount: '6 burrito-sized', name: 'flour tortillas', aisle: 'bread'},
       ],
       instructions: [
         'Cook the rice and chicken.',
@@ -651,7 +651,7 @@ Recipe.reopenClass({
         {amount: '1 cup', name: 'shredded mozzarella', aisle: 'cheese'},
         {amount: '1', name: 'avocado', aisle: 'produce'},
         {amount: '2 Tablespoons', name: 'cilantro'},
-        {amount: '4 large', name: 'tortillas', aisle: 'postBread'},
+        {amount: '4 large', name: 'tortillas', aisle: 'bread'},
         {amount: '4 Tablespoon', name: 'sour cream', aisle: 'cheese'},
         {amount: '1 Tablespoon', name: 'oil'},
       ],
@@ -772,7 +772,7 @@ Recipe.reopenClass({
         {amount: '1/4 tsp', name: 'cayenne pepper'},
         {name: 'salt and freshly ground black pepper, to taste'},
         {amount: '1 (8 oz) pkg', name: 'cream cheese', aisle: 'cheese'},
-        {amount: '1 1/4 cup', name: 'fresh corn (frozen works too)', aisle: 'freezer'},
+        {amount: '1 1/4 cup', name: 'frozen corn', aisle: 'freezer'},
         {amount: '2 (15 oz) cans', name: 'cannellini beans', aisle: 'beans'},
         {amount: '1 Tbsp', name: 'fresh lime juice'},
         {name: 'chopped fresh cilantro, for serving'},
@@ -946,7 +946,7 @@ Recipe.reopenClass({
     },
     {
       id: 'grilled-steaks',
-      title: 'Grilled Steaks with Marinade, Rice and Parmesan Roasted Cauliflower',
+      title: 'Grilled Steaks with Marinade, rice and Parmesan Roasted Cauliflower',
       serves: 4,
       thumb: '/images/thumbs/grilled-steaks.jpg',
       image: '/images/recipes/grilled-steaks.jpg',
@@ -989,7 +989,7 @@ Recipe.reopenClass({
       image: '/images/recipes/pulled-pork.jpg',
       ingredients: [
         {name: 'buns', aisle: 'bread'},
-        {amount: '1 can', name: 'root beer', aisle: 'postBread'},
+        {amount: '1 can', name: 'root beer', aisle: 'snacks'},
         {name: 'pork shoulder', aisle: 'meat'},
         {name: 'bbq sauce', aisle: 'pasta'},
         {name: 'frozen sweet potato fries', aisle: 'freezer'},
