@@ -4,8 +4,10 @@
       {{name}}
     </div>
     {{#each items as |item|}}
-      <a style="cursor:pointer" class="item {{if item.checkedOff 'checked-off'}}" {{action 'item-click' item}}>
-        <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div>
+      <a style="cursor:pointer" class="item {{if item.checkedOff 'checked-off'}}" {{action 'itemClick' item}}>
+        {{#unless noCheck}}
+          <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div>
+        {{/unless}}
         <div class="item-text">
           {{item.name}} {{#if item.recipe}}({{item.recipe}}){{/if}}
         </div>

@@ -1,3 +1,6 @@
+<a class='back-button' style="cursor:pointer" {{action 'back'}}>
+  <div class="icon-arrow-left2"></div>
+</a>
 <div class="shopping-list">
   <div class="header">
     My Grocery List
@@ -10,25 +13,33 @@
     {{#each list.menu as |item i|}}
       {{#if i}}
         <div class="menu-item">
-          {{i}}: {{item}}
+          {{i}}: {{item.title}}
         </div>
       {{/if}}
     {{/each}}
   </div>
   {{/if}}
-  <div class="col1">
-    {{menu-aisle name="Produce" items=list.produce}}
-    {{menu-aisle name="Rice" items=list.rice}}
-    {{menu-aisle name="Bread" items=list.bread}}
-    {{menu-aisle name="Post Bread" items=list.postBread}}
-    {{menu-aisle name="Meat" items=list.meat}}
-    {{menu-aisle name="Dairy" items=list.dairy}}
-    {{menu-aisle name="Cheese" items=list.cheese}}
-    {{menu-aisle name="Freezer" items=list.freezer}}
-    {{menu-aisle name="Baking" items=list.baking}}
-    {{menu-aisle name="Pasta" items=list.pasta}}
-    {{menu-aisle name="Beans" items=list.beans}}
-    {{menu-aisle name="Soup" items=list.soup}}
-    {{menu-aisle name="Staples" items=list.staples}}
+  <div>
+    {{menu-aisle name="Produce" items=list.produce checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Rice" items=list.rice checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Bread" items=list.bread checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Post Bread" items=list.postBread checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Meat" items=list.meat checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Dairy" items=list.dairy checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Cheese" items=list.cheese checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Freezer" items=list.freezer checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Baking" items=list.baking checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Pasta" items=list.pasta checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Beans" items=list.beans checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Soup" items=list.soup checkListItemClick='checkListItemClick'}}
+    {{menu-aisle name="Other" items=list.staples checkListItemClick='checkListItemClick'}}
   </div>
+  {{#if emptyList}}
+    <div class="empty-message">This list is empty :(</div>
+    <div class="empty-message">Use the plus button below to add items.</div>
+  {{else}}
+    <div class="complete-button" {{action 'confirmListComplete'}}>
+      Finished Shopping
+    </div>
+  {{/if}}
 </div>

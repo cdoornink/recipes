@@ -18,9 +18,10 @@ var Recipe = DS.Model.extend({
   ingredients: DS.attr(),
   instructions: DS.attr(),
   thumb: DS.attr(),
-  background: DS.attr()
+  image: DS.attr()
 });
 
+// AISLES
 // produce
 // rice
 // bread
@@ -43,8 +44,8 @@ Recipe.reopenClass({
       prepTime: 15,
       cookTime: 15,
       serves: 6,
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      background: 'http://blogs.babycenter.com/wp-content/uploads/2013/10/chicken-yakisoba-2_small.jpg',
+      thumb: '/images/thumbs/yakisoba.jpg',
+      image: '/images/recipes/yakisoba.jpg',
       ingredients: [
         {name: 'green cabbage', amount: '1/4 head', aisle: 'produce'},
         {name: 'onion', amount: '1 medium', aisle: 'produce'},
@@ -76,8 +77,8 @@ Recipe.reopenClass({
       // prepTime: 15,
       // cookTime: 15,
       serves: 4,
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      background: 'http://blogs.rep-am.com/whatsfordinner/files/2011/12/ItalianWeddingSoup.jpg',
+      thumb: '/images/thumbs/orzo-soup.jpg',
+      image: '/images/recipes/orzo-soup.jpg',
       ingredients: [
         {name: 'egg', amount: '1 large'},
         {name: 'water', amount: '2 Tbsp'},
@@ -106,8 +107,8 @@ Recipe.reopenClass({
       prepTime: 5,
       cookTime: 10,
       serves: 4,
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      background: 'http://damndelicious.net/wp-content/uploads/2013/07/Korean-Beef-Bowl-copy.jpg',
+      thumb: '/images/thumbs/korean-beef.jpg',
+      image: '/images/recipes/korean-beef.jpg',
       ingredients: [
         {amount: '1/3 cup', name: 'brown sugar, packed'},
         {amount: '1/4 cup', name: 'soy sauce'},
@@ -133,8 +134,8 @@ Recipe.reopenClass({
       title: 'Chicken Avocado Caesar Salad',
       groups: [2],
       serves: 4,
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      background: 'http://i2.wp.com/cafedelites.com/wp-content/uploads/2015/03/Chicken-and-Avocado-Caeser-Salad-411.jpg?w=600',
+      thumb: '/images/thumbs/chicken-caesar.jpg',
+      image: '/images/recipes/chicken-caesar.jpg',
       ingredients: [
         {amount: '1/2 loaf', name: 'ciabatta', aisle: 'bread'},
         {amount: '2', name: 'Chicken Breast', aisle: 'meat'},
@@ -162,8 +163,8 @@ Recipe.reopenClass({
       prepTime: 30,
       cookTime: 15,
       serves: 6,
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      background: 'http://tarasmulticulturaltable.com/wp-content/uploads/2013/08/white-pizza-with-chicken-and-herbs-5-of-5.jpg',
+      thumb: '/images/thumbs/white-pizza.jpg',
+      image: '/images/recipes/white-pizza.jpg',
       ingredients: [
         {section: 'dough'},
         {amount: '2 cups', name: 'warm water'},
@@ -213,8 +214,8 @@ Recipe.reopenClass({
       prepTime: 10,
       cookTime: 10,
       serves: 4,
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      background: 'http://www.clowns4kids.com/images/mariachibandtrumpet.jpeg',
+      thumb: '/images/thumbs/chicken-tacos.jpg',
+      image: '/images/recipes/chicken-tacos.jpg',
       ingredients: [
         {amount: '1/2', name: 'onion', aisle: 'produce'},
         {amount: '2', name: 'lettuce', aisle: 'produce'},
@@ -236,8 +237,8 @@ Recipe.reopenClass({
       title: 'BLT Salad with Basil Garlic Bread',
       short: 'BLT Salad',
       groups: [5],
-      thumb: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      background: 'http://www.thelondoner.me/wp-content/uploads/2014/12/blt+salad+-+11874.jpg',
+      thumb: '/images/thumbs/blt-salad.jpg',
+      image: '/images/recipes/blt-salad.jpg',
       ingredients: [
         {section: 'bread'},
         {amount: '2 ounces', name: 'Butter'},
@@ -278,8 +279,8 @@ Recipe.reopenClass({
       prepTime: 15,
       cookTime: 20,
       serves: 4,
-      thumb: 'http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2014/9/23/2/FNM_110114-Rigatoni-with-Swiss-Chard-and-Sausage-Recipe_s4x3.jpg.rend.sni18col.jpeg',
-      background: 'http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2014/9/23/2/FNM_110114-Rigatoni-with-Swiss-Chard-and-Sausage-Recipe_s4x3.jpg.rend.sni18col.jpeg',
+      thumb: '/images/thumbs/rigatoni.jpg',
+      image: '/images/recipes/rigatoni.jpg',
       ingredients: [
         {amount: '12 ounces', name: 'rigatoni', aisle: 'pasta'},
         {amount: '2 Tbsp', name: 'olive oil'},
@@ -307,8 +308,8 @@ Recipe.reopenClass({
       prepTime: 15,
       cookTime: 20,
       serves: 4,
-      thumb: 'http://thecozyapron.com/wp-content/uploads/2015/03/lemon-chicken-flatbead-wraps_03-22-15_1_ca.jpg',
-      background: 'http://thecozyapron.com/wp-content/uploads/2015/03/lemon-chicken-flatbead-wraps_03-22-15_1_ca.jpg',
+      thumb: '/images/thumbs/chicken-wraps.jpg',
+      image: '/images/recipes/chicken-wraps.jpg',
       ingredients: [
         {amount: '1 pound', name: 'chicken breasts', aisle: 'meat'},
         {name: 'Olive oil'},
@@ -351,8 +352,8 @@ Recipe.reopenClass({
       prepTime: 10,
       cookTime: 30,
       serves: 6,
-      thumb: 'http://pictureperfectmeals.com/wp-content/uploads/2014/01/chicken-noodle-soup-001.jpg',
-      background: 'http://pictureperfectmeals.com/wp-content/uploads/2014/01/chicken-noodle-soup-001.jpg',
+      thumb: '/images/thumbs/chicken-noodle.jpg',
+      image: '/images/recipes/chicken-noodle.jpg',
       ingredients: [
         {amount: '3 cups', name: 'chicken breast', aisle: 'meat'},
         {amount: '2 tablespoons', name: 'unsalted butter'},
@@ -380,7 +381,8 @@ Recipe.reopenClass({
       prepTime: 15,
       cookTime: 480,
       serves: 8,
-      background: 'https://lh5.ggpht.com/_BizpeaUzxq8/SaS8B-jZQaI/AAAAAAAAA5w/DShsZLVMhNA/s800/crock-pot-santa-fe-chicken.jpg',
+      thumb: '/images/thumbs/santa-fe-chicken.jpg',
+      image: '/images/recipes/santa-fe-chicken.jpg',
       ingredients: [
         {amount: '24 oz', name: 'chicken breast', aisle: 'meat'},
         {amount: '14.4 oz', name:'diced tomatoes with mild green chilies', aisle: 'beans'},
@@ -405,7 +407,8 @@ Recipe.reopenClass({
       title: 'Cheesy Chicken and Wild Rice Casserole',
       groups: [5],
       serves: 8,
-      background: 'http://picky-palate.com/wp-content/uploads/2010/09/IMG_6634.jpg',
+      thumb: '/images/thumbs/chicken-casserole.jpg',
+      image: '/images/recipes/chicken-casserole.jpg',
       ingredients: [
         {section: 'casserole'},
         {amount: '3 Tablespoons', name: 'olive oil'},
@@ -441,7 +444,8 @@ Recipe.reopenClass({
       serves: 4,
       prepTime: 15,
       cookTime: 15,
-      background: '/images/recipes/fish-taco-bowl-bg.jpg',
+      thumb: '/images/thumbs/fish-taco-bowl-bg.jpg',
+      image: '/images/recipes/fish-taco-bowl-bg.jpg',
       ingredients: [
         {amount: '1 Tbsp', name: 'chili powder'},
         {amount: '1 Tbsp', name: 'cumin'},
@@ -470,7 +474,8 @@ Recipe.reopenClass({
       prepTime: 5,
       cookTime: 7,
       serves: 2,
-      background: '/images/recipes/grilled-cheese-avocado.jpg',
+      thumb: '/images/thumbs/grilled-cheese-avocado.jpg',
+      image: '/images/recipes/grilled-cheese-avocado.jpg',
       ingredients: [
         // {section: 'guacamole'}
         {amount: '2', name: 'avocados', aisle: 'produce'},
@@ -497,7 +502,8 @@ Recipe.reopenClass({
       title: 'Slow Cooker Garlic and Brown Sugar Chicken',
       groups: [3],
       serves: 8,
-      background: '/images/recipes/slow-cooker-garlic-chicken.jpg',
+      thumb: '/images/thumbs/slow-cooker-garlic-chicken.jpg',
+      image: '/images/recipes/slow-cooker-garlic-chicken.jpg',
       ingredients: [
         {amount: '4-6', name: 'chicken breasts', aisle: 'meat'},
         {amount: '1 cup', name: 'packed brown sugar'},
@@ -522,7 +528,8 @@ Recipe.reopenClass({
       title: 'Crispy Southwest Chicken Wraps',
       groups: [3],
       serves: 6,
-      background: '/images/recipes/crispy-sw-chicken-wrap.jpg',
+      thumb: '/images/thumbs/crispy-sw-chicken-wrap.jpg',
+      image: '/images/recipes/crispy-sw-chicken-wrap.jpg',
       ingredients: [
         {amount: '1 cup cooked', name: 'rice'},
         {amount: '1 cup cooked, shredded', name: 'chicken breast', aisle: 'meat'},
@@ -551,7 +558,8 @@ Recipe.reopenClass({
       serves: 6,
       prepTime: 10,
       cookTime: 10,
-      background: '/images/recipes/turkey-burger.jpg',
+      thumb: '/images/thumbs/turkey-burger.jpg',
+      image: '/images/recipes/turkey-burger.jpg',
       ingredients: [
         {amount: '1 cup', name: 'black beans', aisle: 'beans'},
         {amount: '1 pound', name: 'ground turkey', aisle: 'meat'},
@@ -571,7 +579,8 @@ Recipe.reopenClass({
       title: 'Steak Salad',
       groups: [3],
       serves: 4,
-      background: '/images/recipes/steak-salad.jpg',
+      image: '/images/recipes/steak-salad.jpg',
+      thumb: '/images/thumbs/steak-salad.jpg',
       ingredients: [
         {amount: '1 clove', name: 'garlic'},
         {amount: '2 Tbs.', name: 'lime juice'},
@@ -608,7 +617,8 @@ Recipe.reopenClass({
       serves: 4,
       prepTime: 10,
       cookTime: 15,
-      background: '/images/recipes/honey-salmon.jpg',
+      thumb: '/images/thumbs/honey-salmon.jpg',
+      image: '/images/recipes/honey-salmon.jpg',
       ingredients: [
         {amount: '1/4 cup', name: 'honey'},
         {amount: '3 cloves', name: 'garlic'},
@@ -634,7 +644,8 @@ Recipe.reopenClass({
       serves: 4,
       prepTime: 15,
       cookTime: 15,
-      background: '/images/recipes/chicken-avacado-burritos.jpg',
+      thumb: '/images/thumbs/chicken-avacado-burritos.jpg',
+      image: '/images/recipes/chicken-avacado-burritos.jpg',
       ingredients: [
         {amount: '2 cups cooked and shredded ', name: 'chicken breasts', aisle: 'meat'},
         {amount: '1 cup', name: 'shredded mozzarella', aisle: 'cheese'},
@@ -658,7 +669,8 @@ Recipe.reopenClass({
       title: 'Slow Cooker French Dip Sandwiches',
       groups: [1],
       serves: 8,
-      background: '/images/recipes/slow-cooker-french-dip.jpg',
+      thumb: '/images/thumbs/slow-cooker-french-dip.jpg',
+      image: '/images/recipes/slow-cooker-french-dip.jpg',
       ingredients: [
         {amount: '2-3lb', name: 'chuck roast', aisle: 'meat'},
         {amount: '2 cans', name: 'beef broth', aisle: 'soup'},
@@ -677,7 +689,8 @@ Recipe.reopenClass({
       serves: 3,
       prepTime: 10,
       cookTime: 25,
-      background: '/images/recipes/baked-chicken-salad.jpg',
+      thumb: '/images/thumbs/baked-chicken-salad.jpg',
+      image: '/images/recipes/baked-chicken-salad.jpg',
       ingredients: [
         {amount: '1', name: 'egg'},
         {amount: '½ cup', name: 'panko', aisle: 'soup'},
@@ -713,7 +726,8 @@ Recipe.reopenClass({
       title: 'Chicken Asparagus Stir Fry',
       groups: [1],
       serves: 4,
-      background: '/images/recipes/chicken-asparagus-stir-fry.jpg',
+      thumb: '/images/thumbs/chicken-asparagus-stir-fry.jpg',
+      image: '/images/recipes/chicken-asparagus-stir-fry.jpg',
       ingredients: [
         {amount: '1 1/2 pounds cubed', name: 'chicken breast', aisle: 'meat'},
         {name: 'Kosher salt, to taste'},
@@ -742,7 +756,8 @@ Recipe.reopenClass({
       prepTime: 20,
       cookTime: 36,
       serves: 6,
-      background: '/images/recipes/white-chicken-chili.jpg',
+      thumb: '/images/thumbs/white-chicken-chili.jpg',
+      image: '/images/recipes/white-chicken-chili.jpg',
       ingredients: [
         {amount: '1 lb boneless skinless diced', name: 'chicken thighs', aisle: 'meat'},
         {amount: '1 small', name: 'onion', aisle: 'produce'},
@@ -776,7 +791,8 @@ Recipe.reopenClass({
       serves: 4,
       prepTime: 10,
       cookTime: 20,
-      background: '/images/recipes/ramen.jpg',
+      thumb: '/images/thumbs/ramen.jpg',
+      image: '/images/recipes/ramen.jpg',
       ingredients: [
         {amount: '1 tablespoon', name: 'sesame oil', aisle: 'baking'},
         {amount: '4 cloves', name: 'garlic', aisle: 'produce'},
@@ -803,7 +819,8 @@ Recipe.reopenClass({
       serves: 8,
       prepTime: 5,
       cookTime: 20,
-      background: '/images/recipes/one-pot-mac.jpg',
+      thumb: '/images/thumbs/one-pot-mac.jpg',
+      image: '/images/recipes/one-pot-mac.jpg',
       ingredients: [
         {amount: '4 tbsp', name: 'unsalted butter'},
         {amount: '6 tbsp', name: 'flour'},
@@ -839,7 +856,8 @@ Recipe.reopenClass({
       id: 'souvlaki-kabobs',
       title: 'Chicken Souvlaki Kabobs and Tabbouleh',
       serves: 8,
-      background: '/images/recipes/souvlaki-kabobs.jpg',
+      thumb: '/images/thumbs/souvlaki-kabobs.jpg',
+      image: '/images/recipes/souvlaki-kabobs.jpg',
       ingredients: [
         {amount: '1 lbs', name: 'chicken breast', aisle: 'meat'},
         {section: 'Marinade'},
@@ -883,7 +901,8 @@ Recipe.reopenClass({
       id: 'sausage-kale-soup',
       title: 'Sausage, White Bean, Kale Soup and Garlic Bread',
       serves: 8,
-      background: '/images/recipes/sausage-kale-soup.jpg',
+      thumb: '/images/thumbs/sausage-kale-soup.jpg',
+      image: '/images/recipes/sausage-kale-soup.jpg',
       ingredients: [
         {amount: '4', name: 'sausage links', aisle: 'produce'},
         {amount: '1 large', name: 'green bell pepper', aisle: 'produce'},
@@ -906,7 +925,8 @@ Recipe.reopenClass({
       id: 'turkey-panini',
       title: 'Turkey and Tomato Panini with Salad',
       serves: 1,
-      background: '/images/recipes/turkey-panini.jpg',
+      thumb: '/images/thumbs/turkey-panini.jpg',
+      image: '/images/recipes/turkey-panini.jpg',
       ingredients: [
         {amount: '1/2 tbsp', name: 'mayo'},
         {amount: '1/2 tbsp', name: 'plain Greek yogurt', aisle: 'dairy'},
@@ -928,7 +948,8 @@ Recipe.reopenClass({
       id: 'grilled-steaks',
       title: 'Grilled Steaks with Marinade, Rice and Parmesan Roasted Cauliflower',
       serves: 4,
-      background: '/images/recipes/grilled-steaks.jpeg',
+      thumb: '/images/thumbs/grilled-steaks.jpg',
+      image: '/images/recipes/grilled-steaks.jpg',
       ingredients: [
         {name: 'Steak', aisle: 'meat'},
         {section: 'Marinade'},
@@ -964,7 +985,8 @@ Recipe.reopenClass({
       id: 'pulled-pork',
       title: 'Pulled Pork Sandwiches with Sweet Potato Fries',
       serves: 8,
-      background: '/images/recipes/pulled-pork.jpg',
+      thumb: '/images/thumbs/pulled-pork.jpg',
+      image: '/images/recipes/pulled-pork.jpg',
       ingredients: [
         {name: 'buns', aisle: 'bread'},
         {amount: '1 can', name: 'root beer', aisle: 'postBread'},
@@ -981,12 +1003,3 @@ Recipe.reopenClass({
 })
 
 export default Recipe;
-
-
- //plans
- // get rid of the print button ~
- // main page and groups page will have a plus button
- // to add a new group, and also have a list button above it to go to the current list
- // you can add anything to that list and then you can add a group to the list too
- // this list will persist until you mark it as completed, and then it will still exist as
- // the 'last list' so you can reference it during the week for meals.

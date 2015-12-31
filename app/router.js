@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('recipe', {path: '/recipe/:id'});
   this.route('current-list');
   this.route('list');
+  this.route('last-list');
 });
 
 export default Router;

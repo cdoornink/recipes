@@ -18,7 +18,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
-    background: $second_color;
+    background: #444;
     border-radius: 50%;
     width: 34px;
     height: 34px;
@@ -40,7 +40,14 @@
     margin-top: 8px;
     font-size: 22px;
     text-transform: uppercase;
-    color: $second_color;
+    color: #444;
+  }
+  .description {
+    margin: 20px 0 40px;
+    font-size: 18px;
+    .last-list-color {
+      color: $first_color;
+    }
   }
   .input-field {
     margin: 30px 0 40px;
@@ -53,13 +60,13 @@
       width: 100%;
     }
   }
-  button.submit-button {
+  button.submit-button, button.cancel-button {
     cursor: pointer;
     outline: none;
     border: none;
     float: right;
     font-size: 20px;
-    background: $second_color;
+    background: #444;
     color: white;
     padding: 10px 40px;
   }
@@ -73,7 +80,7 @@
     top: 100px;
     width: calc(100% - 80px);
     text-align: center;
-    color: $second_color;
+    color: #444;
     .text {
       font-size: 30px;
     }
@@ -82,6 +89,7 @@
     }
   }
 }
+
 .dialog.confirming {
   form {
     opacity: 0;
@@ -97,4 +105,48 @@
 
 .dialog.add-to-list {
   min-height: 273px;
+  .close-button, button.submit-button {
+    background: $second_color;
+  }
+  .title, .confirmation {
+    color: $second_color;
+  }
+}
+
+.dialog.confirm-complete-list {
+  margin: 20% auto;
+  button.cancel-button {
+    color: $first_color;
+    background: white;
+    border: 4px solid $first_color;
+    padding: 6px 40px;
+    margin-right: 20px;
+  }
+  .title, .confirmation {
+    color: $first_color;
+  }
+  button.submit-button {
+    background: $first_color;
+  }
+}
+
+@media (max-width: 500px) {
+  .dialog {
+    padding: 25px;
+  }
+  .dialog.confirm-complete-list {
+    button.cancel-button {
+      float: left;
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .dialog.confirm-complete-list {
+    button.cancel-button {
+      margin-top: 20px;
+      float: right;
+    }
+  }
 }

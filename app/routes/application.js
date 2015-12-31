@@ -2,10 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   redirect: function() {
-    console.log(localStorage.getItem('path'))
     if (localStorage.getItem('path')) {
-      console.log(localStorage.getItem('path').split('/')[0])
-      this.transitionTo(localStorage.getItem('path').split('/')[0], localStorage.getItem('path').split('/')[1])
+      if (localStorage.getItem('path').split('/')[1]) {
+        this.transitionTo(localStorage.getItem('path').split('/')[0], localStorage.getItem('path').split('/')[1])
+      } else {
+        this.transitionTo(localStorage.getItem('path'))
+      }
     }
   },
   actions: {
@@ -26,7 +28,7 @@ export default Ember.Route.extend({
         $('.input-field input').focus()
       }, 200)
     },
-    closeAddToList: function() {
+    closeDialog: function() {
       this.disconnectOutlet({parentView: 'application', outlet: 'dialogs'});
     },
     addToList: function(item) {
@@ -46,6 +48,58 @@ export default Ember.Route.extend({
           }, 1000)
         });
       })
+    },
+    confirmListComplete: function() {
+      this.disconnectOutlet({parentView: 'application', outlet: 'dialogs'});
+      this.render('dialogs/confirmListComplete', {into: 'application', outlet: 'dialogs'});
+    },
+    completeList: function() {
+      this.store.find('list').then((lists) => {
+        let lastList, currentList
+        lists.forEach((list) => {
+          if (list.get('id') == 'last') {
+            lastList = list
+          }
+          if (list.get('id') == 'current') {
+            currentList = list
+          }
+        })
+        if (lastList) {
+          lastList.destroyRecord().then(() => {
+            this.currentToLast(currentList)
+          })
+        } else {
+          this.currentToLast(currentList)
+        }
+      })
+      localStorage.removeItem('checkedOff');
+      this.disconnectOutlet({parentView: 'application', outlet: 'dialogs'});
     }
+  },
+  currentToLast: function(list) {
+    let lastList = this.store.createRecord('list', {
+      id: 'last',
+      created: list.get('created'),
+      groups: list.get('groups'),
+      addons: list.get('addons')
+    })
+    lastList.save()
+
+    list.set('created', new Date().getTime())
+    let groups = list.get('groups')
+
+    list.destroyRecord().then(() => {
+      groups.forEach((group) => {
+        group.save()
+      })
+      let newList = this.store.createRecord('list', {
+        id: 'current',
+        created: new Date().getTime()
+      })
+      newList.save()
+    })
+    this.container.lookup('controller:currentList').set('list', null)
+    this.transitionTo('index')
+
   }
 });

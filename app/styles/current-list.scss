@@ -1,16 +1,17 @@
 .shopping-list {
-  width: 100%;
+  padding: 0 10%;
   height: 100%;
   margin: 0 auto;
-  overflow: auto;
   position: relative;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   .header {
     @include titleFont;
     font-size: 28px;
     font-weight: 200;
     color: $second-color;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
   }
   .menu {
     @include titleFont;
@@ -21,6 +22,9 @@
     font-size: 20px;
     .menu-item {
       @include brandonFont;
+      display: block;
+      text-decoration: none;
+      color: white;
       font-size: 19px;
       font-weight: 300;
       line-height: 21px;
@@ -55,6 +59,43 @@
         color: $second_color;
       }
     }
+  }
+  .complete-button {
+    cursor: pointer;
+    background: $first_color;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: calc(100% - 100px);
+    margin: 20px;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+  .empty-message {
+    text-align: center;
+    margin: 100px auto;
+    font-size: 20px;
+  }
+}
+.shopping-list.last-list {
+  .header, .aisle .aisle-header {
+    color: $first_color;
+  }
+  .menu {
+    background: $first_color;
+    .menu-item {
+      font-size: 3.5vw;
+      line-height: 5vw;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .shopping-list {
+    padding: 0;
+  }
+  .shopping-list.last-list .menu .menu-item {
+    font-size: 5vw;
+    line-height: 7vw;
   }
 }
 @media print {

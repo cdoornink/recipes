@@ -1,0 +1,37 @@
+<a class='back-button' style="cursor:pointer" {{action 'back'}}>
+  <div class="icon-arrow-left2"></div>
+</a>
+<div class="shopping-list last-list">
+  <div class="header">
+    Last Grocery List
+  </div>
+  {{#if model.groups}}
+  <div class="menu">
+    <div class="menu-header">
+      Menu
+    </div>
+    {{#each list.menu as |item i|}}
+      {{#if i}}
+        {{#link-to 'recipe' item class="menu-item"}}
+          {{i}}: {{item.title}}
+        {{/link-to}}
+      {{/if}}
+    {{/each}}
+  </div>
+  {{/if}}
+  <div>
+    {{menu-aisle name="Produce" items=list.produce noCheck=true}}
+    {{menu-aisle name="Rice" items=list.rice noCheck=true}}
+    {{menu-aisle name="Bread" items=list.bread noCheck=true}}
+    {{menu-aisle name="Post Bread" items=list.postBread noCheck=true}}
+    {{menu-aisle name="Meat" items=list.meat noCheck=true}}
+    {{menu-aisle name="Dairy" items=list.dairy noCheck=true}}
+    {{menu-aisle name="Cheese" items=list.cheese noCheck=true}}
+    {{menu-aisle name="Freezer" items=list.freezer noCheck=true}}
+    {{menu-aisle name="Baking" items=list.baking noCheck=true}}
+    {{menu-aisle name="Pasta" items=list.pasta noCheck=true}}
+    {{menu-aisle name="Beans" items=list.beans noCheck=true}}
+    {{menu-aisle name="Soup" items=list.soup noCheck=true}}
+    {{menu-aisle name="Other" items=list.staples noCheck=true}}
+  </div>
+</div>

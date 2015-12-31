@@ -6,9 +6,12 @@
   background-size: cover;
   width: 100%;
   height: 100%;
-  overflow: auto;
   .recipes {
-    width: 80%;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 100%;
+    padding: 0 10% 80px;
     margin: 0px auto;
     position: relative;
     .group-title {
@@ -30,21 +33,30 @@
       .image {
         float: left;
         width: 20%;
+        min-width: 80px;
         height: 80px;
         background-position: center;
         background-size: cover;
         margin-right: 20px;
       }
       .title {
-        font-size: 20px;
-        padding: 24px 10px;
+        font-size: 19px;
         color: #333;
+        table-layout: fixed;
+        display: table;
+        height: 100%;
+        .title-text {
+          display: table-cell;
+          vertical-align: middle;
+        }
       }
     }
     .recipe.add-to-list {
-      height: 40px;
+      height: auto;
       .image {
         width: 40px;
+        min-width: 40px;
+        height: 20px;
         padding: 10px 13px;
         margin: 0;
         color: $second_color;
@@ -60,6 +72,11 @@
       .image, .title {
         color: white;
       }
+    }
+  }
+  @media (max-width: 400px) {
+    .recipes {
+      padding: 0 0 80px;
     }
   }
 }

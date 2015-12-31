@@ -75,6 +75,19 @@
       background: rgba(255,255,255,.9);
       box-shadow: 0 3px 6px rgba(0,0,0,.2);
     }
+    a.list {
+      font-size: 20px;
+      width: 660px;
+      padding: 10px 15px;
+      margin: 10px;
+      background: rgba(255,255,255,.9);
+      color: $first_color;
+      border-left: 10px solid $first_color;
+    }
+    a.list.current {
+      color: $second_color;
+      border-color: $second_color;
+    }
     .images {
       height: 200px;
       width: 300px;
@@ -96,11 +109,15 @@
     }
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1010px) {
   .home-page {
     .groups a.group {
       float: none;
       margin: 20px auto;
+    }
+    .groups a.list {
+      width: 320px;
+      margin: 10px auto;
     }
 
     .groups {

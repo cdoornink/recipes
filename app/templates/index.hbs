@@ -21,17 +21,17 @@
       <div class="icon-menu"></div>
     </a>
 
-    {{#link-to 'current-list' class="list"}}
-      Current List
+    {{#link-to 'current-list' class="list current"}}
+      Current Grocery List
     {{/link-to}}
-    {{#link-to 'current-list' class="list"}}
-      Last List
+    {{#link-to 'last-list' class="list last"}}
+      Last Grocery List
     {{/link-to}}
     {{#each groups as |group|}}
       {{#link-to 'group' group.id class='group'}}
         <div class="images">
           {{#each group.recipes as |recipe|}}
-            <div class="image" style="background-image: url({{recipe.background}})"></div>
+            <div class="image" style="background-image: url({{recipe.thumb}})"></div>
           {{/each}}
         </div>
         <div class="name">
