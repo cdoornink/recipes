@@ -3,7 +3,8 @@
   height: 100%;
   background-position: center;
   background-size: cover;
-  overflow: auto;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   color: #444;
   // .overlay {
   //   width: 100%;

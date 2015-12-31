@@ -133,17 +133,17 @@ export default Ember.Route.extend({
     return match
   },
   matchwords: {
-    produce: ['salad ingredients','potatoes','asparagus','lemon','lime','avocado','avocados','mushrooms','broccoli','spinach','carrots','onion','lettuce','tomatoes','chard','basil','garlic','cabbage','pepper','corn on','parsnip','turnip','bananas','cucumber','zucchini','cilantro','arugula','celery','scallions','vegetables','berries','berry', 'green beans'],
-    rice: ['rice', 'almond', 'peanut', 'pecans'],
-    bread: ['bread', 'ciabatta', 'buns', 'hoagies', 'pita'],
-    postBread: ['tortilla chips', 'corn chips', 'potato chips', 'nuts', 'tortilla', '7up', 'root', 'beer', 'crackers', 'dried'],
+    produce: ['fresh basil', 'fresh parsley', 'fresh cilanto', 'fresh chives', 'salad ingredients','potatoes','asparagus','lemon','lime','avocado','avocados','mushrooms','broccoli','spinach','carrots','onion','lettuce','tomatoes','chard','basil','garlic','cabbage','pepper','corn on','parsnip','turnip','bananas','cucumber','zucchini','cilantro','arugula','celery','scallions','vegetables','berries','berry', 'green beans'],
+    rice: ['rice', 'almond', 'peanut', 'pecans', 'lunchmeat'],
+    bread: ['bread', 'ciabatta', 'buns', 'hoagies', 'pita', 'baugette', 'baggette'],
+    postBread: ['tortilla chips', 'corn chips', 'potato chips', 'nuts', 'tortilla', '7up', 'root', 'beer', 'crackers', 'dried', 'sparkling water'],
     meat: ['chicken', 'beef', 'ground', 'turkey', 'ham', 'sausage', 'pork', 'tilapia', 'salmon', 'cod', 'veal', 'meat', 'roast'],
     dairy: ['yogurt', 'half', 'milk', 'eggnog', 'whipped', 'cottage'],
     cheese: ["cheese", "cheddar", 'parmesan', 'mozzarella', 'jack', 'sour', 'bacon', 'block of', 'salsa', 'feta', 'provalone', 'eggs', 'butter'],
     freezer: ['frozen', 'ice', 'pie'],
-    baking: ['spice', 'yeast', 'honey', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'pancake', 'syrup', 'applesauce', 'starch'],
+    baking: ['poppy', 'spice', 'dill', 'poppyseed', 'oregano', 'chives', 'coconut', 'yeast', 'honey', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'pancake', 'syrup', 'applesauce', 'starch'],
     pasta: ['orzo', 'dressing', 'sauce', 'rigatoni', 'spaghetti', 'noodle', 'tahini', 'macaroni', 'tortellini', 'tortallini', 'tortillini', 'quinoa', 'pasta'],
-    beans: ['beans', 'cannellini', 'chilies', 'garbanzo', 'chickpeas'],
+    beans: ['beans', 'cannellini', 'chilies', 'garbanzo', 'chickpeas', 'artichoke heart'],
     soup: ['ramen', 'broth', 'panko', 'soup', 'yakisoba']
   },
   updateLocalChecklist: function() {

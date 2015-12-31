@@ -4,6 +4,10 @@
       recipes
     </div>
   </div> --}}
+  <div class="overlay"></div>
+  <a class="drawer-icon" style="cursor:pointer" {{action 'toggleMenu'}}>
+    <div class="icon-menu"></div>
+  </a>
 
   <div class="recipes-list">
     {{list-filter listClass='.recipe-list-link'}}
@@ -17,9 +21,6 @@
   </div>
 
   <div class="groups">
-    <a class="drawer-icon" style="cursor:pointer" {{action 'toggleMenu'}}>
-      <div class="icon-menu"></div>
-    </a>
 
     {{#link-to 'current-list' class="list current"}}
       Current Grocery List
