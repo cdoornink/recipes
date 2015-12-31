@@ -22,6 +22,7 @@ export default Ember.Route.extend({
     let leftoverItems = []
     items.forEach((i) => {
       let item = i.toLowerCase()
+      //not in a for loop because the matches are set up in order so for example: 'cream cheese' in dairy isn't overridden by the cheese aisle matching 'cheese'
       if      (this.matchWord(item, 'produce'))   { this.addItemToAisle(item, '', 'produce', iList)}
       else if (this.matchWord(item, 'bulk'))      { this.addItemToAisle(item, '', 'bulk', iList)}
       else if (this.matchWord(item, 'meat'))      { this.addItemToAisle(item, '', 'meat', iList)}
@@ -41,9 +42,9 @@ export default Ember.Route.extend({
       else if (this.matchWord(item, 'medicine'))  { this.addItemToAisle(item, '', 'medicine', iList)}
       else {  leftoverItems.push(item)}
     })
-    // if(items.length) {
-    //   this.get('controller').set('emptyList', false)
-    // }
+    if(!items.length) {
+      this.get('controller').set('emptyList', true)
+    }
     this.mapAndSetList(iList, leftoverItems)
 
     model.get('groups').then((groups) => {
@@ -51,59 +52,41 @@ export default Ember.Route.extend({
       let group
 
       groups.forEach((g, i) => {
-        console.log(i)
         if (i == 0) {
           group = g
         }
       })
 
       if (group) {
+        this.get('controller').set('emptyList', false)
         group.get('recipes').then((recipes) => {
           recipes.forEach((recipe, i) => {
-
             iList['menu'].push(recipe)
             recipe.get('ingredients').forEach((ingredient, ii) => {
               if (ingredient.aisle) {
                 let name = ingredient.name.toLowerCase()
                 this.addItemToAisle(name, i, ingredient.aisle, iList)
-
               }
-
             })
-
           })
-          console.log(iList.menu)
-
           this.mapAndSetList(iList, leftoverItems)
         })
       }
-
-
     })
   },
   mapAndSetList: function(iList, leftoverItems) {
-    // iList.staples = [{name: 'little tomatoes'},{name: 'bananas'},{name: 'avocados'},{name: 'lettuce'},{name: 'cucumber'},{name: 'broccoli'},{name: 'berries'},{name: 'bell pepper'},{name: 'bread'},{name: 'crackers'},{name: 'applesauce'},{name: 'pecans'},{name: 'yogurt'},{name: 'string cheese'},{name: 'almond butter'},{name: 'peanut butter'},{name: 'honey'},{name: 'chocolate chips'},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''},{name: ''}]
-
     let list = {}
     list.menu = iList.menu
-    list.staples   = $.map(leftoverItems,    function(item, name) {return ListItem.create({id: item, name: item, recipe: ''})})
-    list.produce   = $.map(iList.produce,    function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.bulk      = $.map(iList.bulk,       function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.specialty = $.map(iList.specialty,  function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.bread     = $.map(iList.bread,      function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.snacks    = $.map(iList.snacks,     function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.meat      = $.map(iList.meat,       function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.dairy     = $.map(iList.dairy,      function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.cheese    = $.map(iList.cheese,     function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.freezer   = $.map(iList.freezer,    function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.baking    = $.map(iList.baking,     function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.pasta     = $.map(iList.pasta,      function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.beans     = $.map(iList.beans,      function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.soup      = $.map(iList.soup,       function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.cleaning  = $.map(iList.cleaning,   function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.babies    = $.map(iList.babies,     function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.personal  = $.map(iList.personal,   function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
-    list.medicine  = $.map(iList.medicine,   function(item, name) {return ListItem.create({id: name, name: name, recipe: item})})
+    list.staples = $.map(leftoverItems, function(item, name) {
+      return ListItem.create({id: item, name: item, recipe: ''})
+    })
+    for(var aisle in iList) {
+      if (aisle != 'menu') {
+        list[aisle] = $.map(iList[aisle], function(item, name) {
+          return ListItem.create({id: name, name: name, recipe: item})
+        })
+      }
+    }
     this.get('controller').set('list', list)
     this.fetchLocalChecklist()
   },
@@ -150,19 +133,9 @@ export default Ember.Route.extend({
   updateLocalChecklist: function() {
     let list = this.get('controller').get('list')
     let checkedOff = []
-    for(let i of list.staples) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.produce) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.bulk) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.bread) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.snacks) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.meat) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.dairy) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.cheese) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.freezer) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.baking) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.pasta) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.beans) { if (i.checkedOff) { checkedOff.push(i.id) } }
-    for(let i of list.soup) { if (i.checkedOff) { checkedOff.push(i.id) } }
+    for(var aisle in list) {
+      for(let i of list[aisle]) { if (i.checkedOff) { checkedOff.push(i.id) } }
+    }
     localStorage.setItem('checkedOff', checkedOff)
   },
   fetchLocalChecklist: function() {
@@ -170,19 +143,9 @@ export default Ember.Route.extend({
     let checkedOff = localStorage.getItem('checkedOff')
     if (checkedOff) {
       checkedOff = checkedOff.split(',')
-      for(let i of list.staples) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.produce) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.bulk) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.bread) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.snacks) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.meat) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.dairy) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.cheese) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.freezer) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.baking) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.pasta) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.beans) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
-      for(let i of list.soup) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
+      for(var aisle in list) {
+        for(let i of list[aisle]) { if (checkedOff.indexOf(i.id) != -1) { i.set('checkedOff', true)} }
+      }
     }
   },
   actions: {
