@@ -91,6 +91,13 @@ export default Ember.Route.extend({
     this.fetchLocalChecklist()
   },
   addItemToAisle: function(item, ref, aisle, list) {
+    // console.log(item, ref, aisle)
+    //conform to previous entries depending on if they have an 's' or are missing an 's'
+    if(list[aisle][item + 's'] != undefined) {
+      item = item + 's'
+    } else if (list[aisle][item.slice(0,-1)] != undefined) {
+      item = item.slice(0,-1)
+    }
     let itemRef = list[aisle][item]
     //check here for nameValue to either have an s at the end or for the new value to have one
     ref = typeof(ref) == 'string' ? ref : (ref+1).toString()
@@ -112,7 +119,7 @@ export default Ember.Route.extend({
   },
   matchwords: {
     //listed in order here so blanket words don't override specific items (like 'meat' catching everything in specialties but not overriding the meat section)
-    produce: ['fresh basil', 'fresh parsley', 'fresh cilanto', 'fresh chives', 'salad ingredients','potatoes','asparagus','lemon','lime','avocado','avocados','mushrooms','broccoli','spinach','carrots','onion','lettuce','tomatoes','chard','basil','garlic','cabbage','pepper','corn on','parsnip','turnip','bananas','cucumber','zucchini','cilantro','arugula','celery','scallions','vegetables','berries','berry', 'green beans', 'melon', 'cantelope', 'grapes', 'oranges'],
+    produce: ['fresh basil', 'fresh parsley', 'fresh cilantro', 'chives', 'fresh garlic', 'salad ingredients','potatoes','asparagus','lemon','lime','avocado','avocados','mushrooms','broccoli', 'pepper', 'spinach','carrots','onion','lettuce','tomatoes','chard','garlic','cabbage','corn on','parsnip','turnip','bananas','cucumber','zucchini','cilantro','arugula','celery','scallions','vegetables','berries','berry', 'green beans', 'melon', 'cantelope', 'grapes', 'oranges'],
     bulk: ['rice', 'almond', 'peanut', 'pecans', 'lunchmeat'],
     meat: ['chicken', 'beef', 'ground', 'sausage', 'pork', 'tilapia', 'steak', 'patties', 'hamburgers', 'salmon', 'cod', 'veal', 'roast', 'hot dogs', 'weiners'],
     specialty: ['deli', 'meat', 'ham', 'turkey', 'good cheese', 'fancy cheese', 'nice crackers', 'fancy crackers', 'good bread', 'fancy bread', 'french bread', 'ciabatta', 'baugette', 'baggette', 'mozzarella balls'],
@@ -121,7 +128,7 @@ export default Ember.Route.extend({
     dairy: ['yogurt', 'half', 'milk', 'eggnog', 'whipped', 'cottage'],
     cheese: ["cheese", "cheddar", 'parmesan', 'mozzarella', 'jack', 'sour', 'bacon', 'block of', 'salsa', 'feta', 'provalone', 'eggs', 'butter'],
     freezer: ['frozen', 'ice', 'pie'],
-    baking: ['poppy', 'spice', 'dill', 'poppyseed', 'oregano', 'chives', 'coconut', 'yeast', 'honey', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'pancake', 'syrup', 'applesauce', 'starch'],
+    baking: ['poppy', 'basil', 'paprika', 'spice', 'cilantro', 'dill', 'poppyseed', 'oregano', 'chives', 'coconut', 'yeast', 'honey', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'pancake', 'syrup', 'applesauce', 'starch'],
     pasta: ['orzo', 'dressing', 'sauce', 'rigatoni', 'spaghetti', 'noodle', 'tahini', 'macaroni', 'tortellini', 'tortallini', 'tortillini', 'quinoa', 'pasta'],
     beans: ['beans', 'cannellini', 'chilies', 'garbanzo', 'chickpeas', 'artichoke heart'],
     soup: ['ramen', 'broth', 'panko', 'soup', 'yakisoba'],
