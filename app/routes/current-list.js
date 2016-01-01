@@ -23,7 +23,10 @@ export default Ember.Route.extend({
     items.forEach((i) => {
       let item = i.toLowerCase()
       //not in a for loop because the matches are set up in order so for example: 'cream cheese' in dairy isn't overridden by the cheese aisle matching 'cheese'
-      if      (this.matchWord(item, 'produce'))   { this.addItemToAisle(item, '', 'produce', iList)}
+      //one-off edge cases first -
+      //graham crackers gets caught by 'ham'
+      if (item.indexOf('graham') != -1) { this.addItemToAisle(item, '', 'snacks', iList)}
+      else if (this.matchWord(item, 'produce'))   { this.addItemToAisle(item, '', 'produce', iList)}
       else if (this.matchWord(item, 'bulk'))      { this.addItemToAisle(item, '', 'bulk', iList)}
       else if (this.matchWord(item, 'meat'))      { this.addItemToAisle(item, '', 'meat', iList)}
       else if (this.matchWord(item, 'specialty')) { this.addItemToAisle(item, '', 'specialty', iList)}

@@ -19,7 +19,20 @@ export default Ember.Route.extend({
       }
     },
     back: function() {
-      this.transitionTo('index');
+      let history = localStorage.getItem('history')
+      if (history) {
+        var lastPage = history.split(',')[1]
+        if (lastPage) {
+          console.log('return to '+ lastPage)
+          if (lastPage.split('/')[1]) {
+            return this.transitionTo(lastPage.split('/')[0], lastPage.split('/')[1])
+          } else {
+            return this.transitionTo(lastPage)
+          }
+          return this.transitionTo(lastPage)
+        }
+      }
+      return this.transitionTo('index');
     },
     openAddToList: function() {
       this.disconnectOutlet({parentView: 'application', outlet: 'dialogs'});
@@ -46,6 +59,9 @@ export default Ember.Route.extend({
             $('.dialog').removeClass('confirming')
             $('.input-field input').focus()
           }, 1000)
+          if (localStorage.getItem('path') == 'current-list') {
+            this.container.lookup('route:currentList').buildList()
+          }
         });
       })
     },

@@ -10,7 +10,6 @@ var Recipe = DS.Model.extend({
       return this.get('title')
     }
   }),
-  groups: DS.hasMany('group', {key: 'groups'}),
   prepTime: DS.attr('number'),
   cookTime: DS.attr('number'),
   serves: DS.attr('number'),
@@ -40,7 +39,6 @@ Recipe.reopenClass({
     {
       id: 'yakisoba',
       title: 'Chicken Yakisoba',
-      groups: [2],
       prepTime: 15,
       cookTime: 15,
       serves: 6,
@@ -73,7 +71,6 @@ Recipe.reopenClass({
       id: 'orzo-soup',
       title: 'Escarole and Orzo Soup with Turkey Meatballs',
       short: 'Smitten Kitchen Orzo Soup',
-      groups: [2],
       // prepTime: 15,
       // cookTime: 15,
       serves: 4,
@@ -103,7 +100,6 @@ Recipe.reopenClass({
     {
       id: 'korean-beef',
       title: 'Korean Beef Bowl',
-      groups: [2],
       prepTime: 5,
       cookTime: 10,
       serves: 4,
@@ -132,7 +128,6 @@ Recipe.reopenClass({
     {
       id: 'chicken-caesar',
       title: 'Chicken Avocado Caesar Salad',
-      groups: [2],
       serves: 4,
       thumb: '/images/thumbs/chicken-caesar.jpg',
       image: '/images/recipes/chicken-caesar.jpg',
