@@ -17,10 +17,10 @@ var Recipe = DS.Model.extend({
   ingredients: DS.attr(),
   instructions: DS.attr(),
   thumb: Ember.computed('id', function() {
-    return '/images/thumbs/'+this.get('id')+'.jpg'
+    return 'assets/images/thumbs/'+this.get('id')+'.jpg'
   }),
   image:  Ember.computed('id', function() {
-    return '/images/recipes/'+this.get('id')+'.jpg'
+    return 'assets/images/recipes/'+this.get('id')+'.jpg'
   })
 });
 

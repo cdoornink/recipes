@@ -47,5 +47,14 @@ module.exports = function(environment) {
 
   }
 
+  ENV.manifest = {
+    enabled: true,
+    appcacheFile: "/manifest.appcache",
+    excludePaths: [],
+    includePaths: ['/'],
+    network: ['*'],
+    showCreateDate: true
+  }
+
   return ENV;
 };
