@@ -16,8 +16,12 @@ var Recipe = DS.Model.extend({
   image: DS.attr('string'),
   ingredients: DS.attr(),
   instructions: DS.attr(),
-  thumb: DS.attr(),
-  image: DS.attr()
+  thumb: Ember.computed('id', function() {
+    return '/images/thumbs/'+this.get('id')+'.jpg'
+  }),
+  image:  Ember.computed('id', function() {
+    return '/images/recipes/'+this.get('id')+'.jpg'
+  })
 });
 
 // AISLES
@@ -42,8 +46,6 @@ Recipe.reopenClass({
       prepTime: 15,
       cookTime: 15,
       serves: 6,
-      thumb: '/images/thumbs/yakisoba.jpg',
-      image: '/images/recipes/yakisoba.jpg',
       ingredients: [
         {name: 'green cabbage', amount: '1/4 head', aisle: 'produce'},
         {name: 'onion', amount: '1 medium', aisle: 'produce'},
@@ -74,8 +76,6 @@ Recipe.reopenClass({
       // prepTime: 15,
       // cookTime: 15,
       serves: 4,
-      thumb: '/images/thumbs/orzo-soup.jpg',
-      image: '/images/recipes/orzo-soup.jpg',
       ingredients: [
         {name: 'egg', amount: '1 large'},
         {name: 'water', amount: '2 Tbsp'},
@@ -103,8 +103,6 @@ Recipe.reopenClass({
       prepTime: 5,
       cookTime: 10,
       serves: 4,
-      thumb: '/images/thumbs/korean-beef.jpg',
-      image: '/images/recipes/korean-beef.jpg',
       ingredients: [
         {amount: '1/3 cup', name: 'brown sugar, packed'},
         {amount: '1/4 cup', name: 'soy sauce'},
@@ -129,8 +127,6 @@ Recipe.reopenClass({
       id: 'chicken-caesar',
       title: 'Chicken Avocado Caesar Salad',
       serves: 4,
-      thumb: '/images/thumbs/chicken-caesar.jpg',
-      image: '/images/recipes/chicken-caesar.jpg',
       ingredients: [
         {amount: '1/2 loaf', name: 'ciabatta', aisle: 'bread'},
         {amount: '2', name: 'Chicken Breast', aisle: 'meat'},
@@ -154,12 +150,9 @@ Recipe.reopenClass({
       id: 'white-pizza',
       title: 'White Pizza with Chicken and Fresh Herbs',
       short: 'White Pizza w/ Chicken',
-      groups: [2],
       prepTime: 30,
       cookTime: 15,
       serves: 6,
-      thumb: '/images/thumbs/white-pizza.jpg',
-      image: '/images/recipes/white-pizza.jpg',
       ingredients: [
         {section: 'dough'},
         {amount: '2 cups', name: 'warm water'},
@@ -205,12 +198,9 @@ Recipe.reopenClass({
     {
       id: 'chicken-tacos',
       title: 'Chicken Tacos',
-      groups: [2],
       prepTime: 10,
       cookTime: 10,
       serves: 4,
-      thumb: '/images/thumbs/chicken-tacos.jpg',
-      image: '/images/recipes/chicken-tacos.jpg',
       ingredients: [
         {amount: '1/2', name: 'onion', aisle: 'produce'},
         {amount: '2', name: 'lettuce', aisle: 'produce'},
@@ -231,9 +221,6 @@ Recipe.reopenClass({
       id: 'blt-salad',
       title: 'BLT Salad with Basil Garlic Bread',
       short: 'BLT Salad',
-      groups: [5],
-      thumb: '/images/thumbs/blt-salad.jpg',
-      image: '/images/recipes/blt-salad.jpg',
       ingredients: [
         {section: 'bread'},
         {amount: '2 ounces', name: 'Butter'},
@@ -270,12 +257,9 @@ Recipe.reopenClass({
     {
       id: 'rigatoni',
       title: 'Rigatoni with Swiss Chard and Pork',
-      groups: [5],
       prepTime: 15,
       cookTime: 20,
       serves: 4,
-      thumb: '/images/thumbs/rigatoni.jpg',
-      image: '/images/recipes/rigatoni.jpg',
       ingredients: [
         {amount: '12 ounces', name: 'rigatoni', aisle: 'pasta'},
         {amount: '2 Tbsp', name: 'olive oil'},
@@ -299,12 +283,9 @@ Recipe.reopenClass({
       id: 'chicken-wraps',
       title: 'Grilled Chicken Wraps w/ Spicy Garlic Sauce',
       short: 'Grilled Lemon Chicken Wraps',
-      groups: [5],
       prepTime: 15,
       cookTime: 20,
       serves: 4,
-      thumb: '/images/thumbs/chicken-wraps.jpg',
-      image: '/images/recipes/chicken-wraps.jpg',
       ingredients: [
         {amount: '1 pound', name: 'chicken breasts', aisle: 'meat'},
         {name: 'Olive oil'},
@@ -343,12 +324,9 @@ Recipe.reopenClass({
     {
       id: 'chicken-noodle',
       title: 'Chicken Noodle Soup',
-      groups: [5],
       prepTime: 10,
       cookTime: 30,
       serves: 6,
-      thumb: '/images/thumbs/chicken-noodle.jpg',
-      image: '/images/recipes/chicken-noodle.jpg',
       ingredients: [
         {amount: '3 cups', name: 'chicken breast', aisle: 'meat'},
         {amount: '2 tablespoons', name: 'unsalted butter'},
@@ -372,12 +350,9 @@ Recipe.reopenClass({
     {
       id: 'santa-fe-chicken',
       title: 'Crock Pot Santa Fe Chicken',
-      groups: [5],
       prepTime: 15,
       cookTime: 480,
       serves: 8,
-      thumb: '/images/thumbs/santa-fe-chicken.jpg',
-      image: '/images/recipes/santa-fe-chicken.jpg',
       ingredients: [
         {amount: '24 oz', name: 'chicken breast', aisle: 'meat'},
         {amount: '14.4 oz', name:'diced tomatoes with mild green chilies', aisle: 'beans'},
@@ -400,10 +375,7 @@ Recipe.reopenClass({
     {
       id: 'chicken-casserole',
       title: 'Cheesy Chicken and Wild rice Casserole',
-      groups: [5],
       serves: 8,
-      thumb: '/images/thumbs/chicken-casserole.jpg',
-      image: '/images/recipes/chicken-casserole.jpg',
       ingredients: [
         {section: 'casserole'},
         {amount: '3 Tablespoons', name: 'olive oil'},
@@ -435,12 +407,9 @@ Recipe.reopenClass({
     {
       id: 'fish-taco-bowl',
       title: 'Spicy Fish Taco Bowls',
-      groups: [3],
       serves: 4,
       prepTime: 15,
       cookTime: 15,
-      thumb: '/images/thumbs/fish-taco-bowl-bg.jpg',
-      image: '/images/recipes/fish-taco-bowl-bg.jpg',
       ingredients: [
         {amount: '1 Tbsp', name: 'chili powder'},
         {amount: '1 Tbsp', name: 'cumin'},
@@ -465,12 +434,9 @@ Recipe.reopenClass({
     {
       id: 'grilled-cheese-avocado',
       title: 'Grilled Cheese Avocado Sandwich',
-      groups: [3],
       prepTime: 5,
       cookTime: 7,
       serves: 2,
-      thumb: '/images/thumbs/grilled-cheese-avocado.jpg',
-      image: '/images/recipes/grilled-cheese-avocado.jpg',
       ingredients: [
         // {section: 'guacamole'}
         {amount: '2', name: 'avocados', aisle: 'produce'},
@@ -483,7 +449,7 @@ Recipe.reopenClass({
         // A dash of freshly grated black pepper
         // 1 Roma tomato, chopped
         // {section: 'sandwich'},
-        {amount: '4 slices', name: 'nice bread', aisle: 'bread'},
+        {amount: '4 slices', name: 'nice bread', aisle: 'specialty'},
         {amount: '4 slices', name: 'Block of cheese', aisle: 'cheese'},
         {name: 'Butter'}
       ],
@@ -495,10 +461,7 @@ Recipe.reopenClass({
     {
       id: 'slow-cooker-garlic-chicken',
       title: 'Slow Cooker Garlic and Brown Sugar Chicken',
-      groups: [3],
       serves: 8,
-      thumb: '/images/thumbs/slow-cooker-garlic-chicken.jpg',
-      image: '/images/recipes/slow-cooker-garlic-chicken.jpg',
       ingredients: [
         {amount: '4-6', name: 'chicken breasts', aisle: 'meat'},
         {amount: '1 cup', name: 'packed brown sugar'},
@@ -521,10 +484,7 @@ Recipe.reopenClass({
     {
       id: 'crispy-sw-chicken-wrap',
       title: 'Crispy Southwest Chicken Wraps',
-      groups: [3],
       serves: 6,
-      thumb: '/images/thumbs/crispy-sw-chicken-wrap.jpg',
-      image: '/images/recipes/crispy-sw-chicken-wrap.jpg',
       ingredients: [
         {amount: '1 cup cooked', name: 'rice'},
         {amount: '1 cup cooked, shredded', name: 'chicken breast', aisle: 'meat'},
@@ -549,12 +509,9 @@ Recipe.reopenClass({
     {
       id: 'turkey-burger',
       title: 'Turkey Black Bean Burgers',
-      groups: [3],
       serves: 6,
       prepTime: 10,
       cookTime: 10,
-      thumb: '/images/thumbs/turkey-burger.jpg',
-      image: '/images/recipes/turkey-burger.jpg',
       ingredients: [
         {amount: '1 cup', name: 'black beans', aisle: 'beans'},
         {amount: '1 pound', name: 'ground turkey', aisle: 'meat'},
@@ -572,10 +529,7 @@ Recipe.reopenClass({
     {
       id: 'steak-salad',
       title: 'Steak Salad',
-      groups: [3],
       serves: 4,
-      image: '/images/recipes/steak-salad.jpg',
-      thumb: '/images/thumbs/steak-salad.jpg',
       ingredients: [
         {amount: '1 clove', name: 'garlic'},
         {amount: '2 Tbs.', name: 'lime juice'},
@@ -608,12 +562,9 @@ Recipe.reopenClass({
     {
       id: 'honey-salmon',
       title: 'Honey Salmon',
-      groups: [3],
       serves: 4,
       prepTime: 10,
       cookTime: 15,
-      thumb: '/images/thumbs/honey-salmon.jpg',
-      image: '/images/recipes/honey-salmon.jpg',
       ingredients: [
         {amount: '1/4 cup', name: 'honey'},
         {amount: '3 cloves', name: 'garlic'},
@@ -635,12 +586,9 @@ Recipe.reopenClass({
     {
       id: 'chicken-avacado-burritos',
       title: 'Chicken Avacado Burritos',
-      groups: [1],
       serves: 4,
       prepTime: 15,
       cookTime: 15,
-      thumb: '/images/thumbs/chicken-avacado-burritos.jpg',
-      image: '/images/recipes/chicken-avacado-burritos.jpg',
       ingredients: [
         {amount: '2 cups cooked and shredded ', name: 'chicken breasts', aisle: 'meat'},
         {amount: '1 cup', name: 'shredded mozzarella', aisle: 'cheese'},
@@ -662,10 +610,7 @@ Recipe.reopenClass({
     {
       id: 'slow-cooker-french-dip',
       title: 'Slow Cooker French Dip Sandwiches',
-      groups: [1],
       serves: 8,
-      thumb: '/images/thumbs/slow-cooker-french-dip.jpg',
-      image: '/images/recipes/slow-cooker-french-dip.jpg',
       ingredients: [
         {amount: '2-3lb', name: 'chuck roast', aisle: 'meat'},
         {amount: '2 cans', name: 'beef broth', aisle: 'soup'},
@@ -680,12 +625,9 @@ Recipe.reopenClass({
     {
       id: 'baked-chicken-salad',
       title: 'Crispy Baked Chicken w/ Egg and Arugula Salad',
-      groups: [1],
       serves: 3,
       prepTime: 10,
       cookTime: 25,
-      thumb: '/images/thumbs/baked-chicken-salad.jpg',
-      image: '/images/recipes/baked-chicken-salad.jpg',
       ingredients: [
         {amount: '1', name: 'egg'},
         {amount: '½ cup', name: 'panko', aisle: 'soup'},
@@ -719,10 +661,7 @@ Recipe.reopenClass({
     {
       id: 'chicken-asparagus-stir-fry',
       title: 'Chicken Asparagus Stir Fry',
-      groups: [1],
       serves: 4,
-      thumb: '/images/thumbs/chicken-asparagus-stir-fry.jpg',
-      image: '/images/recipes/chicken-asparagus-stir-fry.jpg',
       ingredients: [
         {amount: '1 1/2 pounds cubed', name: 'chicken breast', aisle: 'meat'},
         {name: 'Kosher salt, to taste'},
@@ -747,12 +686,9 @@ Recipe.reopenClass({
     {
       id: 'white-chicken-chili',
       title: 'White Chicken Chili and Cornbread',
-      groups: [1],
       prepTime: 20,
       cookTime: 36,
       serves: 6,
-      thumb: '/images/thumbs/white-chicken-chili.jpg',
-      image: '/images/recipes/white-chicken-chili.jpg',
       ingredients: [
         {amount: '1 lb boneless skinless diced', name: 'chicken thighs', aisle: 'meat'},
         {amount: '1 small', name: 'onion', aisle: 'produce'},
@@ -782,12 +718,9 @@ Recipe.reopenClass({
     {
       id: 'ramen',
       title: 'Ramen',
-      groups: [1],
       serves: 4,
       prepTime: 10,
       cookTime: 20,
-      thumb: '/images/thumbs/ramen.jpg',
-      image: '/images/recipes/ramen.jpg',
       ingredients: [
         {amount: '1 tablespoon', name: 'sesame oil', aisle: 'baking'},
         {amount: '4 cloves', name: 'garlic', aisle: 'produce'},
@@ -814,8 +747,6 @@ Recipe.reopenClass({
       serves: 8,
       prepTime: 5,
       cookTime: 20,
-      thumb: '/images/thumbs/one-pot-mac.jpg',
-      image: '/images/recipes/one-pot-mac.jpg',
       ingredients: [
         {amount: '4 tbsp', name: 'unsalted butter'},
         {amount: '6 tbsp', name: 'flour'},
@@ -851,8 +782,6 @@ Recipe.reopenClass({
       id: 'souvlaki-kabobs',
       title: 'Chicken Souvlaki Kabobs and Tabbouleh',
       serves: 8,
-      thumb: '/images/thumbs/souvlaki-kabobs.jpg',
-      image: '/images/recipes/souvlaki-kabobs.jpg',
       ingredients: [
         {amount: '1 lbs', name: 'chicken breast', aisle: 'meat'},
         {section: 'Marinade'},
@@ -896,8 +825,6 @@ Recipe.reopenClass({
       id: 'sausage-kale-soup',
       title: 'Sausage, White Bean, Kale Soup and Garlic Bread',
       serves: 8,
-      thumb: '/images/thumbs/sausage-kale-soup.jpg',
-      image: '/images/recipes/sausage-kale-soup.jpg',
       ingredients: [
         {amount: '4', name: 'sausage links', aisle: 'produce'},
         {amount: '1 large', name: 'green bell pepper', aisle: 'produce'},
@@ -920,8 +847,6 @@ Recipe.reopenClass({
       id: 'turkey-panini',
       title: 'Turkey and Tomato Panini with Salad',
       serves: 1,
-      thumb: '/images/thumbs/turkey-panini.jpg',
-      image: '/images/recipes/turkey-panini.jpg',
       ingredients: [
         {amount: '1/2 tbsp', name: 'mayo'},
         {amount: '1/2 tbsp', name: 'plain Greek yogurt', aisle: 'dairy'},
@@ -929,7 +854,7 @@ Recipe.reopenClass({
         {amount: '1 tbsp chopped', name: 'fresh basil'},
         {amount: '1/2 tbsp', name: 'parmesan', aisle: 'cheese'},
         {name: 'salt & freshly-ground pepper'},
-        {amount: '2 slices', name: 'fancy bread', aisle: 'bread'},
+        {amount: '2 slices', name: 'fancy bread', aisle: 'specialty'},
         {amount: '2 ounces oven-roasted', name: 'deli turkey', aisle: 'meat'},
         {amount: '1 roma', name: 'tomato', aisle: 'produce'},
       ],
@@ -943,8 +868,6 @@ Recipe.reopenClass({
       id: 'grilled-steaks',
       title: 'Grilled Steaks with Marinade, rice and Parmesan Roasted Cauliflower',
       serves: 4,
-      thumb: '/images/thumbs/grilled-steaks.jpg',
-      image: '/images/recipes/grilled-steaks.jpg',
       ingredients: [
         {name: 'Steak', aisle: 'meat'},
         {section: 'Marinade'},
@@ -980,8 +903,6 @@ Recipe.reopenClass({
       id: 'pulled-pork',
       title: 'Pulled Pork Sandwiches with Sweet Potato Fries',
       serves: 8,
-      thumb: '/images/thumbs/pulled-pork.jpg',
-      image: '/images/recipes/pulled-pork.jpg',
       ingredients: [
         {name: 'buns', aisle: 'bread'},
         {amount: '1 can', name: 'root beer', aisle: 'snacks'},
@@ -993,7 +914,139 @@ Recipe.reopenClass({
         "Make it delicious.",
         "Put it in your belly."
       ]
-    }
+    },
+    {
+      id: 'asparagus-salad',
+      title: 'Asparagus Bacon and Egg Salad With Cheesy Bread',
+      serves: 1,
+      ingredients: [
+        {amount: '1 large hard boiled', name: 'egg'},
+        {amount: '1 2/3 cups chopped', name: 'asparagus', aisle: 'produce'},
+        {amount: '2 slices cooked and crumbled center cut', name: 'bacon', aisle: 'cheese'},
+        {amount: '1/2 tsp', name: 'Dijon mustard'},
+        {amount: '1 teaspoon extra virgin', name: 'olive oil'},
+        {amount: '1 teaspoon', name: 'red wine vinegar'},
+        {name: 'salt and pepper, to taste'},
+        {name: 'fancy bread', aisle: 'specialty'}
+      ],
+      instructions: [
+        "Bring a pot of water to a boil, add the asparagus and cook 2 to 3 minutes, until tender yet firm. Drain and run under cold water to stop it from cooking further. Set aside.",
+        "In a small bowl mix the Dijon, oil, vinegar and a pinch of salt and pepper.",
+        "Arrange the asparagus on a plate, top with egg and bacon and drizzle with the vinaigrette. Enjoy!"
+      ]
+    },
+    {
+      id: 'honey-mustard-chicken',
+      title: 'Oven Fried Honey Mustard Chicken with Lemon Garlic Brussel Sprouts',
+      serves: 8,
+      prepTime: 15,
+      cookTime: 40,
+      ingredients: [
+        {section: 'Chicken'},
+        {amount: '8 boneless, skinless', name: 'chicken thighs', aisle: 'meat'},
+        {name: 'Kosher salt and freshly ground black pepper, to taste'},
+        {amount: '2 large', name: 'eggs'},
+        {amount: '1/4 cup', name: 'milk'},
+        {amount: '1 1/2 cups', name: 'Panko', aisle: 'soup'},
+        {amount: '1 teaspoon', name: 'smoked paprika'},
+        {amount: '1/4 cup', name: 'vegetable oil'},
+        {amount: '1 cup', name: 'all-purpose flour'},
+        {amount: '2 tablespoons chopped', name: 'fresh parsley leaves'},
+        {section: 'Glaze'},
+        {amount: '1/4 cup', name: 'mayonnaise'},
+        {amount: '2 tablespoons', name: 'honey'},
+        {amount: '1 tablespoon', name: 'mustard'},
+        {amount: '1 tablespoon', name: 'Dijon mustard'},
+        {section: 'Brussel Sprouts'},
+        {amount: '2 lb', name: 'Brussel Sprouts', aisle: 'produce'},
+        {amount: '4 tbsp', name: 'olive oil'},
+        {amount: '5 cloves', name: 'garlic, minced'},
+        {amount: '1', name: 'lemon', aisle: 'produce'},
+        {amount: '3 tbsp grated', name: 'block montery jack', aisle: 'cheese'},
+        {amount: 'sea salt'},
+        {amount: 'pepper'}
+      ],
+      instructions: [
+        "Chicken:",
+        "Preheat oven to 375 degrees F. Line a baking sheet with parchment paper or a silicone baking mat; set aside.",
+        "To make the honey mustard glaze, whisk together mayonnaise, honey and mustards in a small bowl; set aside.",
+        "Season chicken thighs with salt and pepper, to taste.",
+        "In a large bowl, whisk together eggs and milk. In another large bowl, combine Panko, paprika and vegetable oil; season with salt and pepper, to taste.",
+        "Working one at a time, dredge chicken in the flour, dip into the egg mixture, then dredge in the Panko mixture, pressing to coat.",
+        "Place chicken onto the prepared baking sheet and bake for 35-40 minutes, or until the crust is golden brown and the chicken is completely cooked through.",
+        "Serve immediately with honey mustard glaze, garnished with parsley, if desired.",
+        "Brussel Sprouts:",
+        "Clean the brussel sprouts by trimming off the ends and peeling the outer layer of the sprout off. Cut each one in half.",
+        "Heat the oil in a large skillet over medium high heat.",
+        "Once heated, add the halved brussel sprouts to the pan and saute for about 7-8 minutes on each side until the outer part is a caramelized brown and the inside is soft and fully cooked.",
+        "Add the garlic half way through the cooking.",
+        "Reduce the heat to low and add the lemon zest, juice, salt and pepper.",
+        "Stir to combine and taste. Adjust seasoning if needed. Add the cheese on top and serve.",
+      ]
+    },
+    {
+      id: 'bbq',
+      title: 'Barbeque Meat with Marinade, Side, and Veggie',
+      serves: 4,
+      ingredients: [
+        {amount: '1 hunk of', name: 'BBQ Meat', aisle: 'meat'},
+        {amount: '1 bunch of', name: 'Vegetable', aisle: 'produce'}
+      ],
+      instructions: [
+        "Have some summer lovin', finger lickin' fun!"
+      ]
+    },
+    {
+      id: 'avocado-caprese-chicken-salad',
+      title: 'Avocado Caprese Chicken Salad with Balsamic Vinaigrette',
+      serves: 3,
+      prepTime: 3,
+      cookTime: 12,
+      ingredients: [
+        {amount: '1 boneless skinless', name: 'chicken breast', aisle: 'meat'},
+        {name: 'salt & pepper to season chicken'},
+        {amount: '½ cup of halved', name: 'fresh mozzarella balls', aisle: 'specialty'},
+        {amount: '1', name: 'avocado', aisle: 'produce'},
+        {amount: '6 oz. of fresh', name: 'spring mix salad', aisle: 'produce'},
+        {amount: '½ cup of halved', name: 'cherry tomatoes', aisle: 'produce'},
+        {amount: '¼ cup of fresh diced', name: 'basil'},
+        {name: 'Balsamic Vinaigrette', aisle: 'pasta'}
+      ],
+      instructions: [
+        "Heat grill to medium high heat. add seasoned chicken breast to grill and cook for 5-6 minutes per side until there is no more pink.",
+        "In three small salad bowls, divide the spring mix, avocado, cherry tomatoes, fresh basil, fresh mozzarella balls, and sliced grilled chicken.",
+        "Serve with balsamic vinaigrette",
+      ]
+    },
+    {
+      id: 'chicken-bacon-garlic-pasta',
+      title: 'Chicken & Bacon Pasta with Garlic Cream Sauce',
+      serves: 4,
+      prepTime: 20,
+      cookTime: 20,
+      ingredients: [
+        {amount: '2 tablespoons', name: 'olive oil'},
+        {amount: '1 pound', name: 'chicken breast', aisle: 'meat'},
+        {amount: '1 teaspoon', name: 'paprika'},
+        {amount: '1 teaspoon', name: 'Italian seasoning'},
+        {amount: '2 cups', name: 'cherry tomatoes', aisle: 'produce'},
+        {amount: '1 cup cooked', name: 'spinach', aisle: 'produce'},
+        {amount: '5', name: 'garlic cloves, minced'},
+        {amount: '1 tablespoon', name: 'crushed red pepper'},
+        {amount: '6 strips', name: 'bacon', aisle: 'cheese'},
+        {amount: '1 and 1/3 cups', name: 'half and half', aisle: 'dairy'},
+        {amount: '1 and 1/3 cups', name: 'shredded parmesan', aisle: 'cheese'},
+        {amount: '10 oz', name: 'penne pasta', aisle: 'pasta'},
+        {amount: '1/2 cup', name: 'Parmesan cheese, grated, for serving'},
+      ],
+      instructions: [
+        "In a large skillet, on high heat, heat 2 tablespoons of olive oil until hot. Add chicken and cook on one side on high heat for 1 minute. While it cooks, sprinkle the uncooked sides of the chicken with paprika and Italian seasoning. Flip the chicken over, and cook on the other side for 1 minute on high heat. Reduce heat to medium, flip chicken over again and cook, covered, for several minutes until no longer pink in the center. Remove chicken from the pan and keep chicken warm.",
+        "To the same pan (but without chicken), add chopped tomatoes, spinach, garlic, crushed red pepper, 1/3 of the chicken (sliced into small strips) and half the bacon (already cooked and drained of fat). Mix everything.",
+        "Add half and half and bring to boil. Only after half and half starts boiling, add grated Parmesan cheese - immediately reduce to simmer and stir, while simmering, until the cheese melts and makes the sauce creamy, only about 1 minute (at most 2 minutes). Then, immediately remove from heat. Season with more crushed red pepper and salt, if needed.",
+        "In the mean time bring a large pot of water to boil, add pasta and cook it according to instructions. Drain the pasta, rinse with cold water and drain again.",
+        "Add pasta to the skillet with the sauce. Add remaining half of bacon (cooked and drained of fat). Season with more salt if necessary. Slice the remaining 2/3 of chicken into thin strips. To serve, top the pasta with chicken strips and grated Parmesan cheese."
+      ]
+    },
   ]
 })
 

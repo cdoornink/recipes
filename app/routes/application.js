@@ -81,7 +81,18 @@ export default Ember.Route.extend({
           }
         })
         if (lastList) {
+          let groups = lastList.get('groups')
+          let archivedList = this.store.createRecord('list', {
+            id: lastList.get('created'),
+            created: lastList.get('created'),
+            groups: lastList.get('groups'),
+            addons: lastList.get('addons')
+          })
+          archivedList.save()
           lastList.destroyRecord().then(() => {
+            groups.forEach((group) => {
+              group.save()
+            })
             this.currentToLast(currentList)
           })
         } else {

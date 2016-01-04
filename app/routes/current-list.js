@@ -26,6 +26,7 @@ export default Ember.Route.extend({
       //one-off edge cases first -
       //graham crackers gets caught by 'ham'
       if (item.indexOf('graham') != -1) { this.addItemToAisle(item, '', 'snacks', iList)}
+      else if (this.matchWord(item, 'cleaning'))  { this.addItemToAisle(item, '', 'cleaning', iList)}
       else if (this.matchWord(item, 'produce'))   { this.addItemToAisle(item, '', 'produce', iList)}
       else if (this.matchWord(item, 'bulk'))      { this.addItemToAisle(item, '', 'bulk', iList)}
       else if (this.matchWord(item, 'meat'))      { this.addItemToAisle(item, '', 'meat', iList)}
@@ -39,7 +40,6 @@ export default Ember.Route.extend({
       else if (this.matchWord(item, 'pasta'))     { this.addItemToAisle(item, '', 'pasta', iList)}
       else if (this.matchWord(item, 'beans'))     { this.addItemToAisle(item, '', 'beans', iList)}
       else if (this.matchWord(item, 'soup'))      { this.addItemToAisle(item, '', 'soup', iList)}
-      else if (this.matchWord(item, 'cleaning'))  { this.addItemToAisle(item, '', 'cleaning', iList)}
       else if (this.matchWord(item, 'babies'))    { this.addItemToAisle(item, '', 'babies', iList)}
       else if (this.matchWord(item, 'personal'))  { this.addItemToAisle(item, '', 'personal', iList)}
       else if (this.matchWord(item, 'medicine'))  { this.addItemToAisle(item, '', 'medicine', iList)}
@@ -122,6 +122,7 @@ export default Ember.Route.extend({
   },
   matchwords: {
     //listed in order here so blanket words don't override specific items (like 'meat' catching everything in specialties but not overriding the meat section)
+    cleaning: ['detergent', 'soap', 'bleach', 'washer', 'dryer', 'clean', 'sponge'],
     produce: ['fresh basil', 'fresh parsley', 'fresh cilantro', 'chives', 'fresh garlic', 'salad ingredients','potatoes','asparagus','lemon','lime','avocado','avocados','mushrooms','broccoli', 'pepper', 'spinach','carrots','onion','lettuce','tomatoes','chard','garlic','cabbage','corn on','parsnip','turnip','bananas','cucumber','zucchini','cilantro','arugula','celery','scallions','vegetables','berries','berry', 'green beans', 'melon', 'cantelope', 'grapes', 'oranges'],
     bulk: ['rice', 'almond', 'peanut', 'pecans', 'lunchmeat'],
     meat: ['chicken', 'beef', 'ground', 'sausage', 'pork', 'tilapia', 'steak', 'patties', 'hamburgers', 'salmon', 'cod', 'veal', 'roast', 'hot dogs', 'weiners'],
@@ -131,13 +132,12 @@ export default Ember.Route.extend({
     dairy: ['yogurt', 'half', 'milk', 'eggnog', 'whipped', 'cottage'],
     cheese: ["cheese", "cheddar", 'parmesan', 'mozzarella', 'jack', 'sour', 'bacon', 'block of', 'salsa', 'feta', 'provalone', 'eggs', 'butter'],
     freezer: ['frozen', 'ice', 'pie'],
-    baking: ['poppy', 'basil', 'paprika', 'spice', 'cilantro', 'dill', 'poppyseed', 'oregano', 'chives', 'coconut', 'yeast', 'honey', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'pancake', 'syrup', 'applesauce', 'starch'],
+    baking: ['food coloring', 'poppy', 'basil', 'paprika', 'spice', 'cilantro', 'dill', 'poppyseed', 'oregano', 'chives', 'coconut', 'yeast', 'honey', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'pancake', 'syrup', 'applesauce', 'starch'],
     pasta: ['orzo', 'dressing', 'sauce', 'rigatoni', 'spaghetti', 'noodle', 'tahini', 'macaroni', 'tortellini', 'tortallini', 'tortillini', 'quinoa', 'pasta'],
     beans: ['beans', 'cannellini', 'chilies', 'garbanzo', 'chickpeas', 'artichoke heart'],
-    soup: ['ramen', 'broth', 'panko', 'soup', 'yakisoba'],
-    cleaning: ['detergent', 'soap', 'bleach', 'washer', 'dryer', 'clean', 'sponge'],
+    soup: ['ramen', 'broth', 'panko', 'soup', 'yakisoba', 'garbage bag', 'ziploc', 'plastic bag', 'light bulb', 'lights'],
     babies: ['bb', 'diaper', 'pullup', 'pull up', 'wipes', 'baby'],
-    personal: ['face', 'deoder', 'tooth', 'eye', 'lip', 'makeup', 'hair', 'shampoo', 'condition', 'chapstick', 'tampons', 'pads'],
+    personal: ['razor', 'shaving', 'face', 'deoder', 'tooth', 'eye', 'lip', 'makeup', 'hair', 'shampoo', 'condition', 'chapstick', 'tampons', 'pads'],
     medicine: ['medicine', 'vitamin', 'allergy', 'pain', 'tylenol', 'ibuprof', 'advil', 'aceto', 'bandaid', 'band aid', 'neospo', 'cough', 'suppres']
   },
   updateLocalChecklist: function() {
@@ -166,6 +166,25 @@ export default Ember.Route.extend({
         item.set('checkedOff', true)
       }
       this.updateLocalChecklist()
+    },
+    removeFromList: function(item) {
+      this.store.find('list', 'current').then((list) => {
+        let items = list.get('addons')
+        if (!items) { items = [] }
+        if (typeof(items) == 'string') { items = items.split(',') }
+        let newItems = []
+        items.forEach(function(i){
+          if(i.toLowerCase() != item.get('id')) {
+            newItems.push(i)
+          }
+        })
+        list.set('addons', newItems)
+        list.save().then((result) => {
+          if (localStorage.getItem('path') == 'current-list') {
+            this.container.lookup('route:currentList').buildList()
+          }
+        });
+      })
     }
   }
 

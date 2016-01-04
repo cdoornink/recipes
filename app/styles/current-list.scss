@@ -31,11 +31,42 @@
     }
   }
   .aisle {
-    margin: 15px 20px;
+    margin: 15px 0 15px 20px;
     .aisle-header {
       @include titleFont;
       font-size: 18px;
       color: $second-color;
+    }
+    .item-container::-webkit-scrollbar {
+      display: none; 
+    }
+    .item-container {
+      position: relative;
+      width: 100%;
+      overflow-x: auto;
+      .item-inner {
+        width: calc(100% + 60px);
+        overflow: hidden;
+        .item {
+          width: calc(100% - 60px);
+          float: left;
+        }
+        .item-right {
+          position: relative;
+          width: 60px;
+          height: 35px;
+          background: $fourth_color;
+          float: left;
+          color: white;
+          .item-remove {
+            height: 100%;
+            width: 100%;
+            margin: 9px 20px;
+            display: block;
+          }
+        }
+      }
+
     }
     .item {
       display: block;

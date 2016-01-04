@@ -4,14 +4,21 @@
       {{name}}
     </div>
     {{#each items as |item|}}
-      <a style="cursor:pointer" class="item {{if item.checkedOff 'checked-off'}}" {{action 'itemClick' item}}>
-        {{#unless noCheck}}
-          <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div>
-        {{/unless}}
-        <div class="item-text">
-          {{item.name}} {{#if item.recipe}} <span class='recipe-ref'>{{item.recipe}}</span>{{/if}}
+      <div class="item-container">
+        <div class="item-inner">
+          <a style="cursor:pointer" class="item {{if item.checkedOff 'checked-off'}}" {{action 'itemClick' item}}>
+            {{#unless noCheck}}
+              <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div>
+            {{/unless}}
+            <div class="item-text">
+              {{item.name}} {{#if item.recipe}} <span class='recipe-ref'>{{item.recipe}}</span>{{/if}}
+            </div>
+          </a>
+          <div class="item-right">
+            <a style="cursor:pointer" class="item-remove icon-cross" {{action 'deleteItem' item}}></a>
+          </div>
         </div>
-      </a>
+      </div>
     {{/each}}
   </div>
 {{/if}}
