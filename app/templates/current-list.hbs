@@ -5,15 +5,22 @@
   <div class="header">
     My Grocery List
   </div>
-  {{#if model.groups}}
+  {{#if model.recipes}}
   <div class="menu">
     <div class="menu-header">
       Menu
     </div>
     {{#each list.menu as |item i|}}
       {{#if i}}
-        <div class="menu-item">
-          {{i}}: {{item.title}}
+        <div class="menu-item-container">
+          <div class="menu-item-inner">
+            <div class="menu-item">
+              {{i}}: {{item.title}}
+            </div>
+            <div class="menu-item-right">
+              <a style="cursor:pointer" class="item-remove icon-cross" {{action 'removeRecipeFromList' item}}></a>
+            </div>
+          </div>
         </div>
       {{/if}}
     {{/each}}

@@ -44,16 +44,14 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
-  }
-
-  ENV.manifest = {
-    enabled: true,
-    appcacheFile: "/manifest.appcache",
-    excludePaths: [],
-    includePaths: ['/'],
-    network: ['*'],
-    showCreateDate: true
+    ENV.manifest = {
+      enabled: true,
+      appcacheFile: "/manifest.appcache",
+      excludePaths: [],
+      includePaths: ['/'],
+      network: ['*'],
+      showCreateDate: true
+    }
   }
 
   return ENV;

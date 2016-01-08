@@ -50,30 +50,20 @@ export default Ember.Route.extend({
     }
     this.mapAndSetList(iList, leftoverItems)
 
-    model.get('groups').then((groups) => {
+    model.get('recipes').then((recipes) => {
 
-      let group
-
-      groups.forEach((g, i) => {
-        if (i == 0) {
-          group = g
-        }
-      })
-
-      if (group) {
+      if (recipes) {
         this.get('controller').set('emptyList', false)
-        group.get('recipes').then((recipes) => {
-          recipes.forEach((recipe, i) => {
-            iList['menu'].push(recipe)
-            recipe.get('ingredients').forEach((ingredient, ii) => {
-              if (ingredient.aisle) {
-                let name = ingredient.name.toLowerCase()
-                this.addItemToAisle(name, i, ingredient.aisle, iList)
-              }
-            })
+        recipes.forEach((recipe, i) => {
+          iList['menu'].push(recipe)
+          recipe.get('ingredients').forEach((ingredient, ii) => {
+            if (ingredient.aisle) {
+              let name = ingredient.name.toLowerCase()
+              this.addItemToAisle(name, i, ingredient.aisle, iList)
+            }
           })
-          this.mapAndSetList(iList, leftoverItems)
         })
+        this.mapAndSetList(iList, leftoverItems)
       }
     })
   },
@@ -179,6 +169,17 @@ export default Ember.Route.extend({
           }
         })
         list.set('addons', newItems)
+        list.save().then((result) => {
+          if (localStorage.getItem('path') == 'current-list') {
+            this.container.lookup('route:currentList').buildList()
+          }
+        });
+      })
+    },
+    removeRecipeFromList: function(recipe) {
+      this.store.find('list', 'current').then((list) => {
+        let recipes = list.get('recipes')
+        recipes.removeObject(recipe)
         list.save().then((result) => {
           if (localStorage.getItem('path') == 'current-list') {
             this.container.lookup('route:currentList').buildList()

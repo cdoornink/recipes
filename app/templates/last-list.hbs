@@ -5,15 +5,16 @@
   <div class="header">
     Last Grocery List
   </div>
-  {{#if model.groups}}
+  {{#if model.recipes}}
   <div class="menu">
     <div class="menu-header">
       Menu
     </div>
     {{#each list.menu as |item i|}}
       {{#if i}}
+        {{!-- <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div> --}}
         {{#link-to 'recipe' item class="menu-item"}}
-          {{i}}: {{item.title}}
+          {{item.title}}
         {{/link-to}}
       {{/if}}
     {{/each}}

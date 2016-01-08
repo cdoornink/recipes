@@ -20,6 +20,10 @@
     background: $second-color;
     color: white;
     font-size: 20px;
+    .item-box {
+      float: left;
+      margin: 4px 5px;
+    }
     .menu-item {
       @include brandonFont;
       display: block;
@@ -28,6 +32,38 @@
       font-size: 19px;
       font-weight: 300;
       line-height: 21px;
+      padding: 3px 0;
+    }
+    .menu-item-container::-webkit-scrollbar {
+      display: none;
+    }
+    .menu-item-container {
+      position: relative;
+      width: 100%;
+      overflow-x: auto;
+      .menu-item-inner {
+        width: calc(100% + 60px);
+        overflow: hidden;
+        .menu-item {
+          width: calc(100% - 60px);
+          float: left;
+        }
+        .menu-item-right {
+          position: relative;
+          width: 60px;
+          height: 26px;
+          background: $fourth_color;
+          float: left;
+          color: white;
+          font-size: 16px;
+          .item-remove {
+            height: 100%;
+            width: 100%;
+            margin: 5px 20px;
+            display: block;
+          }
+        }
+      }
     }
   }
   .aisle {
@@ -38,7 +74,7 @@
       color: $second-color;
     }
     .item-container::-webkit-scrollbar {
-      display: none; 
+      display: none;
     }
     .item-container {
       position: relative;
