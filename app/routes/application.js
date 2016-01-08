@@ -81,20 +81,35 @@ export default Ember.Route.extend({
           }
         })
         if (lastList) {
-          let groups = lastList.get('groups')
-          let archivedList = this.store.createRecord('list', {
-            id: lastList.get('created'),
-            created: lastList.get('created'),
-            groups: lastList.get('groups'),
-            addons: lastList.get('addons')
-          })
-          archivedList.save()
-          lastList.destroyRecord().then(() => {
-            groups.forEach((group) => {
-              group.save()
+          if (currentList.get('recipes.length') == 0) {
+            let archivedList = this.store.createRecord('list', {
+              id: currentList.get('created'),
+              created: currentList.get('created'),
+              addons: currentList.get('addons')
             })
-            this.currentToLast(currentList)
-          })
+            archivedList.save()
+            currentList.destroyRecord().then(() => {
+              let newList = this.store.createRecord('list', {
+                id: 'current',
+                created: new Date().getTime()
+              })
+              newList.save()
+            })
+            this.container.lookup('controller:currentList').set('list', null)
+            this.transitionTo('index')
+          } else {
+            let archivedList = this.store.createRecord('list', {
+              id: lastList.get('created'),
+              created: lastList.get('created'),
+              recipes: lastList.get('recipes'),
+              addons: lastList.get('addons')
+            })
+            archivedList.save()
+            lastList.destroyRecord().then(() => {
+              this.currentToLast(currentList)
+            })
+          }
+
         } else {
           this.currentToLast(currentList)
         }
@@ -107,18 +122,14 @@ export default Ember.Route.extend({
     let lastList = this.store.createRecord('list', {
       id: 'last',
       created: list.get('created'),
-      groups: list.get('groups'),
+      recipes: list.get('recipes'),
       addons: list.get('addons')
     })
     lastList.save()
 
     list.set('created', new Date().getTime())
-    let groups = list.get('groups')
 
     list.destroyRecord().then(() => {
-      groups.forEach((group) => {
-        group.save()
-      })
       let newList = this.store.createRecord('list', {
         id: 'current',
         created: new Date().getTime()
