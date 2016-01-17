@@ -22,16 +22,16 @@
     font-size: 20px;
     .item-box {
       float: left;
-      margin: 4px 5px;
+      margin: 2px 15px 2px 5px;
+      line-height: 60px;
     }
-    .menu-item {
+    .menu-item, .arrangable-menu-item a {
       @include brandonFont;
       display: block;
       text-decoration: none;
       color: white;
       font-size: 19px;
       font-weight: 300;
-      line-height: 21px;
       padding: 3px 0;
     }
     .menu-item-container::-webkit-scrollbar {
@@ -157,19 +157,97 @@
   }
   .menu {
     background: $first_color;
-    .menu-item {
-      font-size: 3.5vw;
-      line-height: 5vw;
+    padding: 0;
+    .menu-header {
+      padding: 0 4px;
     }
+    .arrangable-menu-item {
+      border-top: 3px solid white;
+      height: 70px;
+      .image {
+        height: 100%;
+        background-size: cover;
+        width: 67px;
+        background-position: center;
+        float: left;
+        margin-right: 5px;
+      }
+    }
+    .arrangable-menu-item a  {
+      font-size: 18px;
+    }
+    .arrangable-menu-item.made a {
+      text-decoration: line-through;
+    }
+    .arrangable-menu-item .menu-item-name {
+      font-size: 19px;
+      color: #333;
+      table-layout: fixed;
+      display: table;
+      height: 100%;
+      a {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.pika-single {
+  height: 220px;
+}
+.calendar {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 50px;
+  .input-replacement {
+    @include avenirFont;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    font-size: 26px;
+    text-align: center;
+    padding-top: 10px;
+    .day {
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .date {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  .input-replacement.icon-calendar {
+    padding-top: 20px;
+  }
+  input {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    color: $first_color;
+    font-size: 1px;
   }
 }
 @media (max-width: 400px) {
   .shopping-list {
     padding: 0;
   }
-  .shopping-list.last-list .menu .menu-item {
-    font-size: 5vw;
-    line-height: 7vw;
+  .shopping-list.last-list .menu .arrangable-menu-item a  {
+    font-size: 14px;
+  }
+}
+@media (min-width: 750px) {
+  .shopping-list.last-list .menu .arrangable-menu-item a  {
+    font-size: 26px;
   }
 }
 @media print {

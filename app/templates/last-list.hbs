@@ -7,15 +7,33 @@
   </div>
   {{#if model.recipes}}
   <div class="menu">
-    <div class="menu-header">
-      Menu
-    </div>
     {{#each list.menu as |item i|}}
       {{#if i}}
-        {{!-- <div class="item-box {{if item.checkedOff 'icon-checkbox-checked' 'icon-checkbox-unchecked'}}"></div> --}}
-        {{#link-to 'recipe' item class="menu-item"}}
-          {{item.title}}
-        {{/link-to}}
+        <div class='arrangable-menu-item {{if item.isMade 'made'}}'>
+          <div class="image" style="background-image: url({{item.thumb}})"></div>
+            <div class='calendar' data-item={{item.id}}>
+            {{#if item.date}}
+              <div class="input-replacement">
+                <div class="date">{{moment-format item.date 'D'}}</div>
+                <div class="day">{{moment-format item.date 'ddd '}}</div>
+              </div>
+            {{else}}
+              <div class='input-replacement icon-calendar'></div>
+            {{/if}}
+
+            {{calendar-picker value=item.date format='MM/DD/YYYY' firstDay=0 selectedDate='setDate'}}
+          </div>
+          {{#if item.isMade}}
+            <div class="item-box icon-checkbox-checked" {{action 'markAsUnmade' item}}></div>
+          {{else}}
+            <div class="item-box icon-checkbox-unchecked" {{action 'markAsMade' item}}></div>
+          {{/if}}
+          <div class="menu-item-name">
+            {{#link-to 'recipe' item}}
+              {{item.title}}
+            {{/link-to}}
+          </div>
+        </div>
       {{/if}}
     {{/each}}
   </div>
@@ -24,6 +42,7 @@
     {{menu-aisle name="Produce" items=list.produce noCheck=true}}
     {{menu-aisle name="Bulk" items=list.bulk noCheck=true}}
     {{menu-aisle name="Specialty" items=list.specialty noCheck=true}}
+    {{menu-aisle name="Spreads" items=list.spreads noCheck=true}}
     {{menu-aisle name="Bread" items=list.bread noCheck=true}}
     {{menu-aisle name="Snacks" items=list.snacks noCheck=true}}
     {{menu-aisle name="Meat" items=list.meat noCheck=true}}

@@ -21,7 +21,9 @@ var Recipe = DS.Model.extend({
   }),
   image:  Ember.computed('id', function() {
     return 'assets/images/recipes/'+this.get('id')+'.jpg'
-  })
+  }),
+  isMade: false,
+  date: DS.attr()
 });
 
 // AISLES
