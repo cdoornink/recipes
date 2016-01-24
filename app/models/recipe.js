@@ -19,26 +19,18 @@ var Recipe = DS.Model.extend({
   thumb: Ember.computed('id', function() {
     return 'assets/images/thumbs/'+this.get('id')+'.jpg'
   }),
-  image:  Ember.computed('id', function() {
+  image: Ember.computed('id', function() {
     return 'assets/images/recipes/'+this.get('id')+'.jpg'
+  }),
+  extraImage1: Ember.computed('id', function() {
+    return 'assets/images/recipes/extras/'+this.get('id')+'.jpg'
+  }),
+  extraImage2: Ember.computed('id', function() {
+    return 'assets/images/recipes/extras/'+this.get('id')+'-2.jpg'
   }),
   isMade: false,
   date: DS.attr()
 });
-
-// AISLES
-// produce
-// bulk
-// bread
-// post bread
-// meat
-// dairy
-// cheese
-// freezer
-// baking
-// pasta
-// beans
-// soup
 
 Recipe.reopenClass({
   FIXTURES: [
@@ -75,8 +67,6 @@ Recipe.reopenClass({
       id: 'orzo-soup',
       title: 'Escarole and Orzo Soup with Turkey Meatballs',
       short: 'Smitten Kitchen Orzo Soup',
-      // prepTime: 15,
-      // cookTime: 15,
       serves: 4,
       ingredients: [
         {name: 'egg', amount: '1 large'},
@@ -440,23 +430,23 @@ Recipe.reopenClass({
       cookTime: 7,
       serves: 2,
       ingredients: [
-        // {section: 'guacamole'}
+        {section: 'guacamole'},
         {amount: '2', name: 'avocados', aisle: 'produce'},
-        // 1/2 small onion, minced
-        // 1 clove garlic, minced
-        // 1 small jalapeño, stems and seeds removed, minced
-        // 2 tablespoons cilantro leaves, finely chopped
-        // 1 tablespoon of fresh lime juice
-        // 1/2 teaspoon coarse salt
-        // A dash of freshly grated black pepper
-        // 1 Roma tomato, chopped
-        // {section: 'sandwich'},
+        {amount: '1/2 small', name: 'onion', aisle: 'produce'},
+        {amount: '1 clove', name: 'garlic'},
+        {amount: '1 small', name: 'jalapeño'},
+        {amount: '2 tablespoons', name: 'cilantro leaves'},
+        {amount: '1 tablespoon of fresh', name: 'lime juice'},
+        {amount: '1/2 teaspoon coarse', name: 'salt'},
+        {amount: 'A dash of freshly grated', name: 'black pepper'},
+        {amount: 'Handful of', name: 'small tomatoes', aisle: 'produce'},
+        {section: 'sandwich'},
         {amount: '4 slices', name: 'nice bread', aisle: 'specialty'},
         {amount: '4 slices', name: 'Block of cheese', aisle: 'cheese'},
         {name: 'Butter'}
       ],
       instructions: [
-        // 'To make the guacamole-cut avocados in half. Remove seed. Scoop out avacado from the peel, put in a large bowl. Using a fork, mash the avocado. Add the onion, garlic, jalapeño, cilantro, lime juice, salt and pepper. Stir until well combined. Add the chopped tomato and stir.',
+        'To make the guacamole - cut avocados in half. Remove seed. Scoop out avacado from the peel, put in a large bowl. Using a fork, mash the avocado. Add the onion, garlic, jalapeño, cilantro, lime juice, salt and pepper. Stir until well combined. Add the chopped tomato and stir.',
         'Heat a pan or griddle to medium-high heat. Spread desired amount of guacamole on both slices of bread then top with cheese. Butter outer slices of bread and grill on one side for about 2 minutes or until golden and crispy. Flip the sandwich and grill until golden brown. Make the other sandwich the same way and serve warm.',
       ]
     },
@@ -574,7 +564,7 @@ Recipe.reopenClass({
         {amount: '1 tablespoon', name: 'white wine vinegar'},
         {amount: '1 tablespoon', name: 'fresh thyme leaves'},
         {name: 'Kosher salt and freshly ground black pepper'},
-        {amount: '2 pounds', name: 'salmon', aisle: 'meat'},
+        {amount: '2 pounds', name: 'salmon', aisle: 'seafood'},
         {name: 'side vegetable', aisle: 'produce'}
       ],
       instructions: [

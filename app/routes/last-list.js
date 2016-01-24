@@ -24,7 +24,6 @@ export default CurrentListRoute.extend({
         let madeRecipes = list.get('madeRecipes')
         madeRecipes.removeObject(recipe)
         list.save().then((result) => {
-          console.log('rebuild')
           if (localStorage.getItem('path') == 'last-list') {
             this.container.lookup('route:lastList').buildList()
           }
@@ -35,7 +34,7 @@ export default CurrentListRoute.extend({
       this.store.find('list', 'last').then((list) => {
         let recipes = JSON.parse(list.get('datedRecipes'))
         let duplicate = false
-        if (recipes.length) {
+        if (recipes && recipes.length) {
           recipes.forEach((recipe) => {
             if (recipe.id == item.id) {
               recipe.selectedDate = item.selectedDate
@@ -47,10 +46,9 @@ export default CurrentListRoute.extend({
           }
           list.set('datedRecipes', JSON.stringify(recipes))
         } else {
-          list.set('datedRecipes', JSON.stringify([recipe]))
+          list.set('datedRecipes', JSON.stringify([item]))
         }
         list.save().then((result) => {
-          console.log('rebuild')
           if (localStorage.getItem('path') == 'last-list') {
             this.container.lookup('route:lastList').buildList()
           }

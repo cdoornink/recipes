@@ -11,6 +11,7 @@
       <div class='recipe add-to-list current'>
         <div class="image"><div class="icon-checkmark"></div></div>
         <div class="title">Added to the current Grocery List</div>
+        {{!-- <div class="title" {{action 'removeGroupFromList'}}>Remove</div> --}}
       </div>
     {{else}}
       <a style="cursor:pointer" class='recipe add-to-list' {{action 'addGroupToList'}}>

@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     if (typeof(items) == 'string') { items = items.split(',') }
 
     this.get('controller').set('model.addedItems', items)
-    let iList = {'menu': [''], 'produce': {}, 'bulk': {}, 'specialty': {}, 'spreads': {}, 'bread': {}, 'snacks': {}, 'meat': {}, 'dairy': {}, 'cheese': {}, 'freezer': {}, 'baking': {}, 'pasta': {}, 'beans': {}, 'soup': {}, 'cleaning': {}, 'babies': {}, 'personal': {}, 'medicine': {}}
+    let iList = {'menu': [''], 'produce': {}, 'bulk': {}, 'specialty': {}, 'spreads': {}, 'bread': {}, 'seafood': {}, 'snacks': {}, 'meat': {}, 'dairy': {}, 'cheese': {}, 'freezer': {}, 'baking': {}, 'cereal': {}, 'pasta': {}, 'beans': {}, 'soup': {}, 'cleaning': {}, 'babies': {}, 'personal': {}, 'medicine': {}}
 
     let leftoverItems = []
     items.forEach((i) => {
@@ -33,11 +33,13 @@ export default Ember.Route.extend({
       else if (this.matchWord(item, 'specialty')) { this.addItemToAisle(item, '', 'specialty', iList)}
       else if (this.matchWord(item, 'spreads'))   { this.addItemToAisle(item, '', 'spreads', iList)}
       else if (this.matchWord(item, 'bread'))     { this.addItemToAisle(item, '', 'bread', iList)}
+      else if (this.matchWord(item, 'seafood'))   { this.addItemToAisle(item, '', 'seafood', iList)}
       else if (this.matchWord(item, 'snacks'))    { this.addItemToAisle(item, '', 'snacks', iList)}
       else if (this.matchWord(item, 'dairy'))     { this.addItemToAisle(item, '', 'dairy', iList)}
       else if (this.matchWord(item, 'cheese'))    { this.addItemToAisle(item, '', 'cheese', iList)}
       else if (this.matchWord(item, 'freezer'))   { this.addItemToAisle(item, '', 'freezer', iList)}
       else if (this.matchWord(item, 'baking'))    { this.addItemToAisle(item, '', 'baking', iList)}
+      else if (this.matchWord(item, 'cereal'))    { this.addItemToAisle(item, '', 'cereal', iList)}
       else if (this.matchWord(item, 'pasta'))     { this.addItemToAisle(item, '', 'pasta', iList)}
       else if (this.matchWord(item, 'beans'))     { this.addItemToAisle(item, '', 'beans', iList)}
       else if (this.matchWord(item, 'soup'))      { this.addItemToAisle(item, '', 'soup', iList)}
@@ -83,12 +85,18 @@ export default Ember.Route.extend({
         let datedRecipes = JSON.parse(model.get('datedRecipes'))
         if (datedRecipes) {
           let menu = this.get('controller.list.menu')
+          menu.forEach((recipe) => {
+            if (recipe) {
+              recipe.set('date', 'null')
+            }
+          })
           datedRecipes.forEach((recipe) => {
             let id = recipe.id
             let date = recipe.selectedDate
             menu.forEach((recipe) => {
               if (recipe.id == id) {
                 recipe.set('date', date)
+                recipe.set('hasDate', true)
               }
             })
           })
@@ -146,15 +154,17 @@ export default Ember.Route.extend({
     cleaning: ['detergent', 'soap', 'bleach', 'washer', 'dryer', 'clean', 'sponge', 'toilet'],
     produce: ['fruit', 'salsa', 'fresh basil', 'fresh parsley', 'fresh cilantro', 'chives', 'fresh garlic', 'salad ingredients','potatoes','asparagus','lemon','lime','avocado','avocados','mushrooms','broccoli', 'pepper', 'spinach','carrots','onion','lettuce','tomatoes','chard','garlic','cabbage','corn on','parsnip','turnip','bananas','cucumber','zucchini','cilantro','arugula','celery','scallions','vegetables','berries','berry', 'green beans', 'melon', 'cantelope', 'grapes', 'oranges'],
     bulk: ['rice', 'almond', 'nuts', 'pecans', 'lunchmeat'],
-    meat: ['meat', 'chicken', 'beef', 'sausage', 'pork', 'tilapia', 'steak', 'patties', 'hamburgers', 'salmon', 'cod', 'veal', 'roast', 'hot dogs', 'weiners'],
+    meat: ['meat', 'chicken', 'beef', 'sausage', 'pork', 'steak', 'patties', 'hamburgers', 'veal', 'roast', 'hot dogs', 'weiners'],
     specialty: ['deli', 'meat', 'ham', 'turkey', 'good cheese', 'fancy cheese', 'nice crackers', 'fancy crackers', 'good bread', 'fancy bread', 'french bread', 'ciabatta', 'baugette', 'baggette', 'mozzarella balls'],
     spreads: ['peanut', 'honey'],
     bread: ['bread', 'buns', 'hoagies', 'pita', 'tortillas', 'flour tortilla', 'corn tortilla'],
+    seafood: ['fish', 'tilapia', 'salmon', 'cod', 'lobster', 'crab', 'shrimp'],
     snacks: ['tortilla chips', 'corn chips', 'potato chips', 'nuts', 'tortilla', '7up', 'root', 'beer', 'crackers', 'dried', 'sparkling water', 'raisen', 'raison', 'applesauce', 'juice'],
     dairy: ['yogurt', 'half', 'milk', 'eggnog', 'whipped', 'cottage'],
     cheese: ["cheese", "cheddar", 'parmesan', 'mozzarella', 'jack', 'sour', 'bacon', 'block of', 'feta', 'provalone', 'eggs', 'butter'],
     freezer: ['frozen', 'ice', 'pie'],
-    baking: ['food coloring', 'poppy', 'basil', 'paprika', 'spice', 'ginger', 'cilantro', 'dill', 'poppyseed', 'oregano', 'chives', 'coconut', 'yeast', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'pancake', 'syrup', 'applesauce', 'starch'],
+    baking: ['corn meal', 'cornmeal', 'corn starch', 'cornstarch', 'food coloring', 'poppy', 'basil', 'paprika', 'parsely', 'parsley', 'rosemary', 'thyme', 'spice', 'ginger', 'cilantro', 'dill', 'poppyseed', 'oregano', 'chives', 'coconut', 'yeast', 'oil', 'sugar', 'salt', 'chocolate chips', 'flour', 'extract', 'cocoa', 'coffee', 'tea', 'filters', 'sprinkles', 'baking', 'applesauce', 'starch'],
+    cereal: ['oats', 'syrup', 'cereal', 'cheerios', 'oatmeal', 'pancake'],
     pasta: ['orzo', 'dressing', 'sauce', 'rigatoni', 'spaghetti', 'noodle', 'tahini', 'macaroni', 'tortellini', 'tortallini', 'tortillini', 'quinoa', 'pasta'],
     beans: ['beans', 'cannellini', 'chilies', 'garbanzo', 'chickpeas', 'artichoke heart'],
     soup: ['ramen', 'broth', 'panko', 'soup', 'yakisoba', 'garbage bag', 'ziploc', 'plastic bag', 'light bulb', 'lights'],

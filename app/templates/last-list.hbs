@@ -12,7 +12,7 @@
         <div class='arrangable-menu-item {{if item.isMade 'made'}}'>
           <div class="image" style="background-image: url({{item.thumb}})"></div>
             <div class='calendar' data-item={{item.id}}>
-            {{#if item.date}}
+            {{#if item.hasDate}}
               <div class="input-replacement">
                 <div class="date">{{moment-format item.date 'D'}}</div>
                 <div class="day">{{moment-format item.date 'ddd '}}</div>
@@ -21,7 +21,7 @@
               <div class='input-replacement icon-calendar'></div>
             {{/if}}
 
-            {{calendar-picker value=item.date format='MM/DD/YYYY' firstDay=0 selectedDate='setDate'}}
+            {{calendar-picker readonly="true" value=item.date format='MM/DD/YYYY' firstDay=0 selectedDate='setDate'}}
           </div>
           {{#if item.isMade}}
             <div class="item-box icon-checkbox-checked" {{action 'markAsUnmade' item}}></div>
@@ -29,7 +29,7 @@
             <div class="item-box icon-checkbox-unchecked" {{action 'markAsMade' item}}></div>
           {{/if}}
           <div class="menu-item-name">
-            {{#link-to 'recipe' item}}
+            {{#link-to 'recipe' item.id}}
               {{item.title}}
             {{/link-to}}
           </div>
@@ -44,12 +44,14 @@
     {{menu-aisle name="Specialty" items=list.specialty noCheck=true}}
     {{menu-aisle name="Spreads" items=list.spreads noCheck=true}}
     {{menu-aisle name="Bread" items=list.bread noCheck=true}}
+    {{menu-aisle name="Seafood" items=list.seafood noCheck=true}}
     {{menu-aisle name="Snacks" items=list.snacks noCheck=true}}
     {{menu-aisle name="Meat" items=list.meat noCheck=true}}
     {{menu-aisle name="Dairy" items=list.dairy noCheck=true}}
     {{menu-aisle name="Cheese" items=list.cheese noCheck=true}}
     {{menu-aisle name="Freezer" items=list.freezer noCheck=true}}
     {{menu-aisle name="Baking" items=list.baking noCheck=true}}
+    {{menu-aisle name="Cereal" items=list.cereal noCheck=true}}
     {{menu-aisle name="Pasta" items=list.pasta noCheck=true}}
     {{menu-aisle name="Beans" items=list.beans noCheck=true}}
     {{menu-aisle name="Soup" items=list.soup noCheck=true}}
