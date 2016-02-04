@@ -29,7 +29,8 @@ var Recipe = DS.Model.extend({
     return 'assets/images/recipes/extras/'+this.get('id')+'-2.jpg'
   }),
   isMade: false,
-  date: DS.attr()
+  date: DS.attr(),
+  dessert: DS.attr('boolean')
 });
 
 Recipe.reopenClass({
@@ -120,7 +121,7 @@ Recipe.reopenClass({
       title: 'Chicken Avocado Caesar Salad',
       serves: 4,
       ingredients: [
-        {amount: '1/2 loaf', name: 'ciabatta', aisle: 'bread'},
+        {amount: '1/2 loaf', name: 'ciabatta', aisle: 'specialty'},
         {amount: '2', name: 'Chicken Breast', aisle: 'meat'},
         {amount: '1 Tbsp', name: 'garlic powder'},
         {amount: '2 Tbsp', name: 'dried parsley flakes'},
@@ -223,7 +224,7 @@ Recipe.reopenClass({
         {amount: '1 whole', name: 'Green Onion', aisle: 'produce'},
         {amount: '2 pinches', name: 'Salt'},
         {amount: '1 pinch', name: 'Pepper'},
-        {amount: '1 loaf', name: 'Ciabatta bread', aisle: 'bread'},
+        {amount: '1 loaf', name: 'Ciabatta', aisle: 'specialty'},
         {amount: '2 cup', name: 'parmesan cheese', aisle: 'cheese'},
         {section: 'salad'},
         {amount: '2 hearts', name: 'Lettuce', aisle: 'produce'},
@@ -262,7 +263,7 @@ Recipe.reopenClass({
         {amount: '1 Tbsp plus 1 tsp', name: 'all-purpose flour'},
         {amount: '1 3/4', name: 'milk'},
         {amount: '1/2 cup', name: 'parmesan cheese', aisle: 'cheese'},
-        {name: 'lemon juice', aisle: 'produce'}
+        {name: 'lemon juice', aisle: 'pasta'}
       ],
       instructions: [
         "Bring a large pot of salted water to a boil. Add the pasta and cook as the label directs. Reserve 1/2 cup cooking water, then drain the pasta.",
@@ -282,14 +283,14 @@ Recipe.reopenClass({
         {amount: '1 pound', name: 'chicken breasts', aisle: 'meat'},
         {name: 'Olive oil'},
         {amount: '2 cloves', name: 'garlic'},
-        {amount: '1 tablespoon', name: 'lemon juice', aisle: 'produce'},
+        {amount: '1 tablespoon', name: 'lemon juice', aisle: 'pasta'},
         {amount: '1 teaspoon', name: 'salt'},
         {amount: 'Pinch or two', name: 'black pepper'},
         {amount: '½ teaspoon', name: 'dried oregano'},
         {amount: '½ teaspoon', name: 'ground cumin'},
         {amount: '¼ teaspoon', name: 'cilantro'},
         {amount: '¼ teaspoon', name: 'paprika'},
-        {name: 'pita bread', aisle: 'bread'},
+        {name: 'pita bread', aisle: 'specialty'},
         {name: 'arugula', aisle: 'produce'},
         {name: 'tomatoes', aisle: 'produce'},
         {section: 'sauce'},
@@ -352,7 +353,7 @@ Recipe.reopenClass({
         {amount: '8 oz', name: 'frozen corn', aisle: 'freezer'},
         {amount: '1/4 cup', name:'fresh cilantro', aisle: 'produce'},
         {amount: '14.4 oz', name:'chicken broth', aisle: 'soup'},
-        {amount: '3', name: 'scallions', aisle: 'produce'},
+        {amount: '3', name: 'green onion', aisle: 'produce'},
         {amount: '1 tsp', name: 'garlic powder'},
         {amount: '1 tsp', name: 'onion powder'},
         {amount: '1 tsp', name: 'cumin'},
@@ -360,7 +361,7 @@ Recipe.reopenClass({
         {name: 'salt'},
       ],
       instructions: [
-        "Combine chicken broth, beans (drained), corn, tomatoes, cilantro, scallions, garlic powder, onion powder, cumin, cayenne pepper and salt in the crock pot. Season chicken breast with salt and lay on top.",
+        "Combine chicken broth, beans (drained), corn, tomatoes, cilantro, green onions, garlic powder, onion powder, cumin, cayenne pepper and salt in the crock pot. Season chicken breast with salt and lay on top.",
         "Cook on low for 10 hours or on high for 6 hours. Half hour before serving, remove chicken and shred. Return chicken to slow cooker and stir in. Adjust salt and seasoning to taste. Serve over rice or tortillas and your favorite toppings.",
       ]
     },
@@ -665,7 +666,7 @@ Recipe.reopenClass({
         {amount: '1 bunch', name: 'asparagus', aisle: 'produce'},
         {amount: '6 cloves', name: 'garlic'},
         {amount: '1 tbsp', name: 'fresh ginger'},
-        {amount: '3 tablespoons fresh', name: 'lemon juice', aisle: 'produce'},
+        {amount: '3 tablespoons fresh', name: 'lemon juice', aisle: 'pasta'},
         {name: 'fresh black pepper, to taste'},
       ],
       instructions: [
@@ -697,7 +698,7 @@ Recipe.reopenClass({
         {amount: '1 (8 oz) pkg', name: 'cream cheese', aisle: 'cheese'},
         {amount: '1 1/4 cup', name: 'frozen corn', aisle: 'freezer'},
         {amount: '2 (15 oz) cans', name: 'cannellini beans', aisle: 'beans'},
-        {amount: '1 Tbsp', name: 'fresh lime juice'},
+        {amount: '1 Tbsp', name: 'lime juice'},
         {name: 'chopped fresh cilantro, for serving'},
         {name: 'shredded Monterrey Jack cheese, for serving'},
         {name: 'cornbread'},
@@ -786,7 +787,7 @@ Recipe.reopenClass({
         {section: 'Tzatziki sauce '},
         {amount: '1 container (6 oz)', name: 'plain Greek yogurt', aisle: 'dairy'},
         {amount: '1 small', name: 'cucumber', aisle: 'produce'},
-        {amount: '3 tablespoons', name: 'lemon juice', aisle: 'produce'},
+        {amount: '3 tablespoons', name: 'lemon juice', aisle: 'pasta'},
         {amount: '1 teaspoon', name: 'fine grain sea salt'},
         {amount: '1 tablespoon', name: 'fresh mint', aisle: 'produce'},
         {section: 'Tabbouleh'},
@@ -842,7 +843,7 @@ Recipe.reopenClass({
       ingredients: [
         {amount: '1/2 tbsp', name: 'mayo'},
         {amount: '1/2 tbsp', name: 'plain Greek yogurt', aisle: 'dairy'},
-        {name: 'lemon juice', aisle: 'produce'},
+        {name: 'lemon juice', aisle: 'pasta'},
         {amount: '1 tbsp chopped', name: 'fresh basil'},
         {amount: '1/2 tbsp', name: 'parmesan', aisle: 'cheese'},
         {name: 'salt & freshly-ground pepper'},
@@ -865,7 +866,7 @@ Recipe.reopenClass({
         {section: 'Marinade'},
         {amount: '1/3 cup', name: 'soy sauce'},
         {amount: '1/2 cup', name: 'olive oil'},
-        {name: 'lemon juice', aisle: 'produce'},
+        {name: 'lemon juice', aisle: 'pasta'},
         {amount: '1/4 cup', name: 'Worcestershire sauce'},
         {amount: '1 1/2 tablespoons', name: 'garlic powder'},
         {amount: '3 tablespoons', name: 'dried basil'},
@@ -1037,6 +1038,36 @@ Recipe.reopenClass({
         "Add half and half and bring to boil. Only after half and half starts boiling, add grated Parmesan cheese - immediately reduce to simmer and stir, while simmering, until the cheese melts and makes the sauce creamy, only about 1 minute (at most 2 minutes). Then, immediately remove from heat. Season with more crushed red pepper and salt, if needed.",
         "In the mean time bring a large pot of water to boil, add pasta and cook it according to instructions. Drain the pasta, rinse with cold water and drain again.",
         "Add pasta to the skillet with the sauce. Add remaining half of bacon (cooked and drained of fat). Season with more salt if necessary. Slice the remaining 2/3 of chicken into thin strips. To serve, top the pasta with chicken strips and grated Parmesan cheese."
+      ]
+    },
+    {
+      id: 'single-serve-chocolate-chip',
+      title: 'Single Serve Chocolate Chip Cookies',
+      dessert: true,
+      serves: 2,
+      prepTime: 5,
+      cookTime: 8,
+      ingredients: [
+        {amount: '2 tablespoons of', name: 'butter'},
+        {amount: '2 firmly packed tablespoons of', name: 'dark brown sugar'},
+        {amount: '1 tablespoon of', name: 'granulated sugar'},
+        {amount: 'Pinch of kosher', name: 'salt'},
+        {amount: '¼ teaspoon of pure', name: 'vanilla extract'},
+        {amount: '1', name: 'egg yolk'},
+        {amount: '¼ teaspoon of', name: 'baking soda'},
+        {amount: '¼ cup of', name: 'all-purpose flour'},
+        {amount: '3 heaping tablespoons of', name: 'semisweet chocolate chips'}
+      ],
+      instructions: [
+        "Preheat oven to 350 degrees and line a baking sheet with parchment paper.",
+        "In a microwave safe bowl, heat butter just until it starts to melt and is softened. Blend softened butter, sugars, salt, and vanilla together by hand.",
+        "Add egg yolk and stir again.",
+        "Add baking soda and flour and stir until combined.",
+        "Then stir in chocolate chips.",
+        "Form cookie dough into two balls and place on baking sheet.",
+        "The cookies will spread during baking, so make sure they are several inches apart.",
+        "Bake for about 8 minutes, or until edges are golden brown.",
+        "Remove baking sheet from oven and give the baking sheet a firm, but careful bang on the counter top. This will deflate the cookie and give it a perfect wrinkly appearance.",
       ]
     },
   ]
