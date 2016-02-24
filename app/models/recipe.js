@@ -13,7 +13,6 @@ var Recipe = DS.Model.extend({
   prepTime: DS.attr('number'),
   cookTime: DS.attr('number'),
   serves: DS.attr('number'),
-  image: DS.attr('string'),
   ingredients: DS.attr(),
   instructions: DS.attr(),
   thumb: Ember.computed('id', function() {
@@ -897,7 +896,7 @@ Recipe.reopenClass({
       title: 'Pulled Pork Sandwiches with Sweet Potato Fries',
       serves: 8,
       ingredients: [
-        {name: 'buns', list: true},
+        {name: 'ciabatta', list: true},
         {amount: '1 can', name: 'root beer', list: true},
         {name: 'pork shoulder', list: true},
         {name: 'bbq sauce', list: true},
@@ -1068,6 +1067,27 @@ Recipe.reopenClass({
         "The cookies will spread during baking, so make sure they are several inches apart.",
         "Bake for about 8 minutes, or until edges are golden brown.",
         "Remove baking sheet from oven and give the baking sheet a firm, but careful bang on the counter top. This will deflate the cookie and give it a perfect wrinkly appearance.",
+      ]
+    },
+    {
+      id: 'best-rolled-sugar-cookie',
+      title: 'The Best Rolled Sugar Cookies',
+      dessert: true,
+      prepTime: 20,
+      cookTime: 8,
+      ingredients: [
+        {amount: '1 1/2 cups', name: 'butter, softened'},
+        {amount: '2 cups white', name: 'sugar'},
+        {amount: '4', name: 'eggs'},
+        {amount: '1 teaspoon', name: 'vanilla extract'},
+        {amount: '5 cups', name: 'all-purpose flour'},
+        {amount: '2 teaspoons', name: 'baking powder'},
+        {amount: '1 teaspoon', name: 'salt'}
+      ],
+      instructions: [
+        "In a large bowl, cream together butter and sugar until smooth. Beat in eggs and vanilla. Stir in the flour, baking powder, and salt. Cover, and chill dough for at least one hour (or overnight).",
+        "Preheat oven to 400 degrees F (200 degrees C). Roll out dough on floured surface 1/4 to 1/2 inch thick. Cut into shapes with any cookie cutter. Place cookies 1 inch apart on ungreased cookie sheets.",
+        "Bake 6 to 8 minutes in preheated oven. Cool completely",
       ]
     },
   ]
