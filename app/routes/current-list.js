@@ -297,6 +297,7 @@ export default Ember.Route.extend({
     'grapes': 'produce',
     'green beans': 'produce',
     'graham': 'snacks',
+    'goldfish': 'snacks',
     'ham': 'specialty',
     'hamburgers': 'meat',
     'hoagies': 'bread',
