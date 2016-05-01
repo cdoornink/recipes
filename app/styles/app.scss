@@ -10,10 +10,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 a {
   text-decoration: none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 @import 'fonts';

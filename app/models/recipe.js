@@ -511,6 +511,7 @@ Recipe.reopenClass({
         {amount: '1/2 cup', name: 'panko', list: true},
         {amount: '1', name: 'egg'},
         {amount: '1 (1 ounce) package', name: 'dry onion soup mix', list: true},
+        {amount: '6', name: 'burger buns', list: true}
       ],
       instructions: [
         "Preheat an outdoor grill for medium-high heat and lightly oil the grate.",
