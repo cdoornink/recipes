@@ -45,9 +45,23 @@
         table-layout: fixed;
         display: table;
         height: 100%;
+        width: calc(100% - 194px);
         .title-text {
           display: table-cell;
           vertical-align: middle;
+        }
+      }
+      .add-recipe {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        padding: 32px 20px;
+        cursor: pointer;
+        color: $second_color;
+        background: rgba(0,0,0,.03);
+        &.icon-checkmark {
+          background: $second_color;
+          color: white;
         }
       }
     }

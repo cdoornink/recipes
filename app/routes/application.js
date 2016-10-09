@@ -10,6 +10,15 @@ export default Ember.Route.extend({
       }
     }
   },
+  model(params) {
+    return this.store.find('list', 'current').then((list) => {
+      return {
+        currentRecipes: list.get('recipes').map((recipe) => {
+          return recipe.get('id')
+        })
+      }
+    })
+  },
   actions: {
     toggleMenu: function() {
       if ($('.home-page').hasClass('open')) {
@@ -23,7 +32,6 @@ export default Ember.Route.extend({
       if (history) {
         var lastPage = history.split(',')[1]
         if (lastPage) {
-          console.log('return to '+ lastPage)
           if (lastPage.split('/')[1]) {
             return this.transitionTo(lastPage.split('/')[0], lastPage.split('/')[1])
           } else {
@@ -63,6 +71,26 @@ export default Ember.Route.extend({
             this.container.lookup('route:currentList').buildList()
           }
         });
+      })
+    },
+    addRecipeToList: function(recipe) {
+      this.store.find('list', 'current').then((list) => {
+        let recipes = list.get('recipes')
+        recipes.addObject(recipe)
+        list.save()
+        this.controller.set('model.currentRecipes', list.get('recipes').map((recipe) => {return recipe.get('id')}))
+      })
+    },
+    removeRecipeFromList: function(recipe) {
+      this.store.find('list', 'current').then((list) => {
+        let recipes = list.get('recipes')
+        recipes.removeObject(recipe)
+        list.save().then((result) => {
+          if (localStorage.getItem('path') == 'current-list') {
+            this.container.lookup('route:currentList').buildList()
+          }
+        });
+        this.controller.set('model.currentRecipes', list.get('recipes').map((recipe) => {return recipe.get('id')}))
       })
     },
     confirmListComplete: function() {

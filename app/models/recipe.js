@@ -367,6 +367,7 @@ Recipe.reopenClass({
     {
       id: 'chicken-casserole',
       title: 'Cheesy Chicken and Wild rice Casserole',
+      short: 'Cheesy Chicken & Rice Casserole',
       serves: 8,
       ingredients: [
         {section: 'casserole'},
@@ -453,6 +454,7 @@ Recipe.reopenClass({
     {
       id: 'slow-cooker-garlic-chicken',
       title: 'Slow Cooker Garlic and Brown Sugar Chicken',
+      short: 'Crock Pot Garlic & Sugar Chicken',
       serves: 8,
       ingredients: [
         {amount: '4-6', name: 'chicken breasts', list: true},
@@ -618,6 +620,7 @@ Recipe.reopenClass({
     {
       id: 'baked-chicken-salad',
       title: 'Crispy Baked Chicken w/ Egg and Arugula Salad',
+      short: 'Crispy Chicken w/ Egg & Salad',
       serves: 3,
       prepTime: 10,
       cookTime: 25,
@@ -737,6 +740,7 @@ Recipe.reopenClass({
     {
       id: 'one-pot-mac',
       title: 'One Pot Creamy Mac and Cheese with Salad',
+      short: 'One Pot Mac and Cheese',
       serves: 8,
       prepTime: 5,
       cookTime: 20,
@@ -774,6 +778,7 @@ Recipe.reopenClass({
     {
       id: 'souvlaki-kabobs',
       title: 'Chicken Souvlaki Kabobs and Tabbouleh',
+      short: 'Chicken Souvlaki Kabobs',
       serves: 8,
       ingredients: [
         {amount: '1 lbs', name: 'chicken breast', list: true},
@@ -817,6 +822,7 @@ Recipe.reopenClass({
     {
       id: 'sausage-kale-soup',
       title: 'Sausage, White Bean, Kale Soup and Garlic Bread',
+      short: 'Sausage, White Bean & Kale Soup',
       serves: 8,
       ingredients: [
         {amount: '4', name: 'sausage links', list: true},
@@ -839,6 +845,7 @@ Recipe.reopenClass({
     {
       id: 'turkey-panini',
       title: 'Turkey and Tomato Panini with Salad',
+      short: 'Turkey and Tomato Panini',
       serves: 1,
       ingredients: [
         {amount: '1/2 tbsp', name: 'mayo'},
@@ -860,6 +867,7 @@ Recipe.reopenClass({
     {
       id: 'grilled-steaks',
       title: 'Grilled Steaks with Marinade, rice and Parmesan Roasted Cauliflower',
+      short: 'Steaks with Roasted Cauliflower',
       serves: 4,
       ingredients: [
         {name: 'Steak', list: true},
@@ -895,6 +903,7 @@ Recipe.reopenClass({
     {
       id: 'pulled-pork',
       title: 'Pulled Pork Sandwiches with Sweet Potato Fries',
+      short: 'Pulled Pork Sandwiches',
       serves: 8,
       ingredients: [
         {name: 'ciabatta', list: true},
@@ -911,6 +920,7 @@ Recipe.reopenClass({
     {
       id: 'asparagus-salad',
       title: 'Asparagus Bacon and Egg Salad With Cheesy Bread',
+      short: 'Asparagus Bacon and Egg Salad',
       serves: 1,
       ingredients: [
         {amount: '1 large hard boiled', name: 'egg'},
@@ -931,6 +941,7 @@ Recipe.reopenClass({
     {
       id: 'honey-mustard-chicken',
       title: 'Oven Fried Honey Mustard Chicken with Lemon Garlic Brussel Sprouts',
+      short: 'Honey Mustard Chicken & Brussel',
       serves: 8,
       prepTime: 15,
       cookTime: 40,
@@ -980,6 +991,7 @@ Recipe.reopenClass({
     {
       id: 'bbq',
       title: 'Barbeque Meat with Marinade, Side, and Veggie',
+      short: 'Barbeque Meat, Side & Veggie',
       serves: 4,
       ingredients: [
         {amount: '1 hunk of', name: 'BBQ Meat', list: true},
@@ -992,6 +1004,7 @@ Recipe.reopenClass({
     {
       id: 'avocado-caprese-chicken-salad',
       title: 'Avocado Caprese Chicken Salad with Balsamic Vinaigrette',
+      short: 'Avocado Caprese Chicken Salad',
       serves: 3,
       prepTime: 3,
       cookTime: 12,
@@ -1014,6 +1027,7 @@ Recipe.reopenClass({
     {
       id: 'chicken-bacon-garlic-pasta',
       title: 'Chicken & Bacon Pasta with Garlic Cream Sauce',
+      short: 'Chicken & Bacon Garlic Pasta',
       serves: 4,
       prepTime: 20,
       cookTime: 20,

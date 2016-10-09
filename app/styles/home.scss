@@ -40,10 +40,24 @@
       width: 100%;
       background: white;
       margin-bottom: 2px;
+      position: relative;
       .recipe-link-item {
         color: #321;
         font-size: 17px;
         padding: 10px;
+      }
+      .add-recipe {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        padding: 14px 10px;
+        cursor: pointer;
+        color: $second_color;
+        background: rgba(0,0,0,.03);
+        &.icon-checkmark {
+          background: $second_color;
+          color: white;
+        }
       }
       &:active {
         background: #444;

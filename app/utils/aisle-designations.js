@@ -3,6 +3,7 @@ export default {
   'baking': 'baking',
   'frozen': 'freezer',
   'fresh': 'produce',
+  'alcohol': 'liquor',
   // regular
   '7up': 'snacks',
   'aceto': 'medicine',

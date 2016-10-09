@@ -26,7 +26,6 @@ export function initialize(app) {
         history.unshift(currentPath)
       }
       newHistory = history
-      console.log(newHistory)
       if (newHistory[0] == 'index') {
         newHistory = ['index']
       }

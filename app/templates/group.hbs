@@ -23,6 +23,7 @@
       {{#link-to 'recipe' recipe.id class='recipe'}}
         <div class="image" style="background-image: url({{recipe.thumb}})"></div>
         <div class="title"><div class="title-text">{{recipe.title}}</div></div>
+        {{add-recipe-button recipe=recipe addRecipeToList='addRecipeToList' removeRecipeFromList='removeRecipeFromList'}}
       {{/link-to}}
     {{/each}}
 

@@ -28,6 +28,7 @@ export default Ember.Route.extend({
         recipes.addObjects(groupRecipes)
         list.save()
         this.controller.set('currentList', true)
+        this.controllerFor('application').set('model.currentRecipes', list.get('recipes').map((recipe) => {return recipe.get('id')}))
       })
     },
     removeGroupFromList: function() {
@@ -38,6 +39,7 @@ export default Ember.Route.extend({
         recipes.removeObjects(groupRecipes)
         list.save()
         this.controller.set('currentList', false)
+        this.controllerFor('application').set('model.currentRecipes', list.get('recipes').map((recipe) => {return recipe.get('id')}))
       })
     }
   }

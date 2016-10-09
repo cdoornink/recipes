@@ -16,6 +16,7 @@
         <div class='recipe-link-item'>
           {{recipe.shortTitle}}
         </div>
+        {{add-recipe-button recipe=recipe addRecipeToList='addRecipeToList' removeRecipeFromList='removeRecipeFromList'}}
       {{/link-to}}
     {{/each}}
   </div>

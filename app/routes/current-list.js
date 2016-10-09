@@ -177,17 +177,6 @@ export default Ember.Route.extend({
           }
         });
       })
-    },
-    removeRecipeFromList: function(recipe) {
-      this.store.find('list', 'current').then((list) => {
-        let recipes = list.get('recipes')
-        recipes.removeObject(recipe)
-        list.save().then((result) => {
-          if (localStorage.getItem('path') == 'current-list') {
-            this.container.lookup('route:currentList').buildList()
-          }
-        });
-      })
     }
   }
 });
