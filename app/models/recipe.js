@@ -120,7 +120,7 @@ Recipe.reopenClass({
       title: 'Chicken Avocado Caesar Salad',
       serves: 4,
       ingredients: [
-        {amount: '1/2 loaf', name: 'ciabatta', list: true},
+        {amount: '1/2 loaf', name: 'ciabatta'},
         {amount: '2', name: 'Chicken Breast', list: true},
         {amount: '1 Tbsp', name: 'garlic powder'},
         {amount: '2 Tbsp', name: 'dried parsley flakes'},
