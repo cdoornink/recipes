@@ -7,6 +7,7 @@ export default ApplicationAdapter.extend({
     if (config.environment == 'development') {
       path = "devvingLists"
     }
+    return 'lists' //remove before merging this commit
     return path
   }
 });

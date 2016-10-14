@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('current-list');
   this.route('list');
   this.route('last-list');
+  this.route('history');
 });
 
 export default Router;

@@ -5,5 +5,6 @@ export default DS.Model.extend({
   recipes: DS.hasMany('recipe', {key: 'recipes', async: true}),
   madeRecipes: DS.hasMany('recipe', {key: 'madeRecipes', async: true}),
   datedRecipes: DS.attr('string'),
-  addons: DS.attr('string')
+  addons: DS.attr('string'),
+  executionDate: DS.attr()
 });
