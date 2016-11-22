@@ -155,17 +155,20 @@ export default Ember.Route.extend({
     })
     lastList.save()
 
-    list.set('created', new Date().getTime())
-
     list.destroyRecord().then(() => {
       let newList = this.store.createRecord('list', {
         id: 'current',
         created: new Date().getTime()
       })
       newList.save()
+    }, () => {
+      let newList = this.store.createRecord('list', {
+        id: 'currentBroke',
+        created: new Date().getTime()
+      })
+      newList.save()
     })
     this.container.lookup('controller:currentList').set('list', null)
     this.transitionTo('index')
-
   }
 });
