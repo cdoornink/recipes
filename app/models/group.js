@@ -86,6 +86,18 @@ Group.reopenClass({
         "souvlaki-kabobs",
         "turkey-panini",
       ]
+    },
+    {
+      "id" : "7",
+      "name" : "Week 7",
+      "recipes" : [
+        "braised-chicken",
+        "steak-fajitas",
+        "spinach-artichoke-pasta",
+        "chicken-guac-sliders",
+        "tenderloin-sandwich",
+        "sweet-potato-salad",
+      ]
     }
   ]
 })

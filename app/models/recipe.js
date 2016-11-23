@@ -727,7 +727,7 @@ Recipe.reopenClass({
         {amount: '3 (5.6-ounce) packages refrigerated', name: 'Yaki-Soba', list: true},
         {amount: '3 cups', name: 'baby spinach', list: true},
         {amount: '1', name: 'carrot', list: true},
-        {amount: '2 tablespoons chopped', name: 'chives', list: true}
+        {amount: '2 tablespoons chopped', name: 'fresh chives', list: true}
       ],
       instructions: [
         "Heat 1 tablespoon sesame oil in a large stockpot or Dutch oven over medium heat. Add garlic and ginger, and cook, stirring frequently, until fragrant, about 1-2 minutes.",
@@ -1052,6 +1052,183 @@ Recipe.reopenClass({
         "Add half and half and bring to boil. Only after half and half starts boiling, add grated Parmesan cheese - immediately reduce to simmer and stir, while simmering, until the cheese melts and makes the sauce creamy, only about 1 minute (at most 2 minutes). Then, immediately remove from heat. Season with more crushed red pepper and salt, if needed.",
         "In the mean time bring a large pot of water to boil, add pasta and cook it according to instructions. Drain the pasta, rinse with cold water and drain again.",
         "Add pasta to the skillet with the sauce. Add remaining half of bacon (cooked and drained of fat). Season with more salt if necessary. Slice the remaining 2/3 of chicken into thin strips. To serve, top the pasta with chicken strips and grated Parmesan cheese."
+      ]
+    },
+    {
+      id: 'braised-chicken',
+      title: 'Cream-Braised Chicken with Swiss Chard and Potatoes',
+      short: 'Cream-Braised Chicken',
+      ingredients: [
+        {amount: '6', name: 'chicken drumsticks & thighs w/ skin/bone', list: true},
+        {name: 'Salt'},
+        {name: 'Pepper'},
+        {name: 'Olive oil'},
+        {amount: '2-3 quartered', name: 'Russet potatoes', list: true},
+        {amount: '2 minced', name: 'shallots', list: true},
+        {amount: '3 minced cloves', name: 'garlic'},
+        {amount: '1 teaspoons ground', name: 'cumin'},
+        {amount: '1/2 teaspoon ground', name: 'coriander'},
+        {amount: '3 sprigs', name: 'fresh thyme', list: true},
+        {amount: '2 tablespoons', name: 'red wine vinegar'},
+        {amount: '2-3 roughly chopped leaves', name: 'swiss chard', list: true},
+        {amount: '1 teaspoon lemon zest from 1 ', name: 'lemon'},
+        {amount: '3 cups', name: 'chicken broth', list: true},
+        {amount: '1/2 cup', name: 'heavy cream', list: true},
+        {name: 'Salt to taste'},
+        {amount: 'Handful of chopped', name: 'Italian parsley'}
+      ],
+      instructions: [
+        'Start by prepping your chicken: wash the chicken and thoroughly pat dry using paper towels. Sprinkle the chicken with a few pinches of salt and pepper on both sides.',
+        'To a large pot, heat 2 tablespoons of oil over moderately medium to high heat. When the oil is hot, place the chicken, skin-side down and cook until the skin is crispy and browned, about 3 to 5 minutes. Flip the chicken, using a pair of tongs, and cook for an additional minute or so. You want to avoid overcrowding the pot, so you most likely will have to do this in batches. Remove the chicken from the pan and set it aside in a bowl.',
+        'You may find that the chickens skin has released a lot of grease. We dont want all of that in the dish so dump out most of it, leaving about 1 tablespoon (eyeball this measurement). Place the pot over medium heat and when hot, add the potatoes, cooking them on each side until browned and crispy, about 1 minute. Remove them from the pan and set aside.',
+        'Throw in the shallot and cook until translucent, about 3 minutes. Add the garlic and cook until fragrant, about 1 minute. Next, add the cumin, coriander and fresh thyme. Pour in the red wine vinegar and using a spoon, deglaze the bottom of pan, scraping up any browned, crispy bits. Add the swiss chard, lemon zest and chicken stock. Add the chicken and potatoes back to the pot, being sure to nestle them into the mixture.',
+        'Bring the chicken mixture to a simmer and turn the heat to low; cover the pot and cook for 45 minutes, until the potatoes and chicken are cooked. Mix in the heavy cream and salt the mixture to taste (I added about 1 teaspoon). Cook for an additional 10 to 15 minutes. Divide between bowls and top with a sprinkling of fresh Italian parsley.'
+      ]
+    },
+    {
+      id: 'steak-fajitas',
+      title: 'Skirt Steak Fajitas',
+      ingredients: [
+        {section: 'Marinade'},
+        {amount: '1/3 cups', name: 'soy sauce'},
+        {amount: '1/3 cups', name: 'lime juice'},
+        {amount: '1/3 cups', name: 'canola oil'},
+        {amount: '3 cloves minced', name: 'garlic'},
+        {amount: '2 tablespoons', name: 'brown sugar'},
+        {amount: '1 teaspoon', name: 'cumin'},
+        {amount: '1 teaspoon', name: 'chile powder'},
+        {section: 'Errrthang else'},
+        {amount: '2 lbs', name: 'skirt steak', list: true},
+        {amount: '2-3', name: 'bell peppers', list: true},
+        {amount: '1 large', name: 'onion', list: true},
+        {amount: '18', name: '6-inch flour tortillas', list: true},
+        {amount: 'wedges of', name: 'limes', list: true},
+        {amount: 'toppings of your choice such as, cilantro, salsa, cheese, sour cream  & avocados or guacamole'}
+      ],
+      instructions: [
+        'Get the marinade prepared: Whisk together the marinade ingredients in a small bowl. Reserve about 1/3 cup of marinade for the vegetables. Place the steak in a gallon-sized ziplock bag. Add the remaining marinade. Seal the bag, pressing out any excess air, massage the marinade into the meat a bit. Refrigerate anywhere from 3-10 hours.',
+        'After meat has finished marinating, remove steak from marinade and wipe off excess marinade with paper towel. (I also cut the steak into a couple of more manageable sized pieces, for easier turning on the grill). brush the vegetables with reserved marinade. Heat your grill to high. Scrape the grill grate clean and oil the grate. Add the steak to the super hot grill and grill, covered about 2 1/2 minutes per side (for medium/medium-rare), or until steak reaches desired doneness. Remove steak to a clean plate and cover with foil & let rest for 10-15 minutes.',
+        'Add the peppers and onions to the grill and grill, turning occasionally until cooked, peppers should take about 5 minutes and onions will take about 10. Remove from grill. Briefly add the tortillas to the grill, a couple at a time and grill until warmed and lightly charred around the edges. Wrap the tortillas in foil to keep warm.',
+        'Thinly slice the steak, against the grain. Slice the onions in half and separate the rings. Slice the peppers. Serve with the tortillas, lime wedges and toppings of your choice.'
+      ]
+    },
+    {
+      id: 'spinach-artichoke-pasta',
+      title: 'Spinach Artichoke Pasta',
+      serves: 10,
+      prepTime: 10,
+      cookTime: 20,
+      ingredients: [
+        {amount: '6 Tablespoons', name: 'Butter'},
+        {amount: '4 cloves minced', name: 'Garlic'},
+        {amount: '2 bags', name: 'Baby Spinach', list: true},
+        {amount: '2 cans', name: 'Artichoke Hearts', list: true},
+        {amount: '3 Tablespoons', name: 'Flour'},
+        {amount: '3 cups', name: 'Whole Milk'},
+        {amount: '1/4 teaspoon', name: 'Cayenne Pepper'},
+        {name: 'Salt And Pepper to taste'},
+        {amount: '1/2 cup grated', name: 'Parmesan Cheese'},
+        {amount: '1-1/2 cup grated', name: 'Mozzarella Or Monterey Jack Cheese'},
+        {amount: '1/2 cup', name: 'Chicken Broth', list: true},
+        {amount: '12 ounces', name: 'weight Penne pasta', list: true},
+        {amount: '1/2 cup', name: 'Panko'},
+        {amount: 'Crushed Red Pepper, To Taste'},
+      ],
+      instructions: [
+        'Melt 2 tablespoons butter in a large pot or skillet. Add garlic and throw in the spinach. Stir it around until its wilted, about 1 minute. Remove spinach from heat and set aside. ',
+        'Add 2 tablespoons butter to the same pot and raise the heat to high. Throw in the halved artichokes and stir it around until they get a little color, 1 to 2 minutes. Remove the artichokes from the pot and set them aside. ',
+        'Reduce the heat to low. Add 2 tablespoons butter to the pot. When melted, sprinkle in flour and whisk until its combined. Pour in milk and whisk to combine. Let it cook for 3 to 4 minutes, or until starting to thicken. Add Parmesan, Mozzarella/Monterey Jack, salt and pepper, and cayenne pepper. Stir to melt, and if its overly thick, splash in chicken broth.',
+        'Add artichokes and pasta, tossing gently to combine. Gently fold in spinach, then pour the pasta into a serving bowl. Sprinkle the top with crushed red pepper flakes and plenty of Panko breadcrumbs for crunch.',
+        'Serve immediately!',
+      ]
+    },
+    {
+      id: 'chicken-guac-sliders',
+      title: 'Cilantro Lime Chicken Sliders with Tomato Guacamole',
+      title: 'Chicken Sliders with Guacamole',
+      serves: 6,
+      prepTime: 25,
+      cookTime: 6,
+      ingredients: [
+        {section: 'Chicken'},
+        {amount: '6', name: 'chicken thighs', list: true},
+        {amount: '¼ cup', name: 'fresh cilantro', list: true},
+        {amount: '2', name: 'limes', list: true},
+        {amount: '3 Tbsp.', name: 'olive oil'},
+        {amount: '½ tsp.', name: 'salt'},
+        {amount: '12', name: 'slider buns', list: true},
+        {section: 'Guacamole'},
+        {amount: '1¼ cup chopped', name: 'tomatoes', list: true},
+        {amount: '2', name: 'avocados', list: true},
+        {amount: '1 Tbsp. finely chopped', name: 'onion', list: true},
+        {amount: '2 Tbsp. finely chopped', name: 'fresh cilantro'},
+        {amount: '2-3 Tbsp.', name: 'fresh lime juice'},
+        {amount: '¼ tsp.', name: 'garlic salt'},
+        {amount: '¼ tsp.', name: 'sea salt'},
+        {name: 'fresh ground black pepper'}
+      ],
+      instructions: [
+        'Prepare the chicken marinade by whisking together cilantro, lime juice, olive oil, and salt until combined. Add chicken pieces to a medium bowl and pour the marinade over the chicken, coating all around. Cover the bowl and marinate for 30 minutes, refrigerated.',
+        'While the chicken is marinating, prepare the guacamole by combining tomatoes, avocado pulp, onion, cilantro, lime juice, garlic salt, and sea salt in a medium bowl. With a fork or potato masher, mash everything together until chunky consistency. Season with fresh black pepper to taste. Cover and refrigerate until ready to serve.',
+        'Preheat the grill on medium high and grill the chicken for 3 minutes per side or until no longer pink on the inside.',
+        'To assemble: place chicken on the bottom buns, top with a good heaping of guacamole. Serve immediately. Serves 6 as main dish (2 sliders each).'
+      ]
+    },
+    {
+      id: 'tenderloin-sandwich',
+      title: 'Grilled Beef Tenderloin Sandwich with Spicy Steakhouse Aioli',
+      title: 'Beef Tenderloin Sandwich',
+      serves: 4,
+      prepTime: 10,
+      cookTime: 40,
+      ingredients: [
+        {amount: '3 tablespoons', name: 'El Diablo Spicy Steakhouse Mustard', list: true},
+        {amount: '1/4 cup', name: 'honey'},
+        {amount: '1', name: 'garlic clove'},
+        {amount: '1/2 cup', name: 'mayonnaise'},
+        {name: 'kosher salt and pepper'},
+        {amount: '1 lb', name: 'beef tenderloin', list: true},
+        {amount: '5 large', name: 'mushrooms', list: true},
+        {amount: '1 large', name: 'vidalia onion', list: true},
+        {amount: '1 cup', name: 'baby spinach', list: true},
+        {amount: '1/4 cup', name: 'blue cheese', list: true},
+        {amount: '1', name: 'ciabatta loaf', list: true},
+        {amount: '3 tablespoons', name: 'extra virgin olive oil'},
+      ],
+      instructions: [
+        'In a mini food processor, add the mustard, honey, garlic and mayonnaise processing until smooth. Season with salt and pepper to taste. Let sit for 30 minutes.',
+        'Coat the tenderloin in 1 tablespoon olive oil and cover liberally with salt and pepper. On a prepared grill, cook the beef over med-high heat, turning occasionally to create a crust. Continue to grill until medium rare, approximately 20 minutes. (use a grill thermometer to determine temperature, I remove around 125 degrees.) Transfer to a plate and allow to rest for 10 minutes covered with foil.',
+        'Drizzle the onions and mushrooms with olive oil and season with salt and pepper. Grill the onions and mushrooms until soft, approximately 5-7 minutes. Transfer to a plate.',
+        'Brush both cut sides of the ciabatta with olive oil and grill, cut side down, until lightly charred, approximately 5 minutes.',
+        'To assemble: Slice the beef into 1/2 inch slices, set aside. Brush both cut sides of the bread with aioli, top the bottom half with grilled onions and then layer the beef on the onions. Top the beef with the mushrooms, blue cheese, spinach and then the top of the ciabatta. Cut into four sandwiches, serve immediately.',
+      ]
+    },
+    {
+      id: 'sweet-potato-salad',
+      title: 'Roasted Sweet Potato, Wild Rice, and Arugula Salad',
+      title: 'Sweet Potato Salad',
+      serves: 4,
+      ingredients: [
+        {section: 'Salad'},
+        {amount: '2 cups cooked (about ½ cup raw)', name: 'wild rice', list: true},
+        {amount: '2 large', name: 'sweet potatoes', list: true},
+        {amount: '1 tablespoon', name: 'olive oil'},
+        {amount: '1 teaspoon', name: 'chili powder'},
+        {name: 'salt and pepper to taste'},
+        {amount: '3 cups', name: 'arugula', list: true},
+        {amount: '½ cup', name: 'cashew pieces', list: true},
+        {section: 'Dressing'},
+        {amount: '¼ cup freshly squeezed', name: 'lemons', list: true},
+        {name: 'zest of the lemons'},
+        {amount: '⅓ cup', name: 'olive oil'},
+        {amount: '2 teaspoons', name: 'agave nectar', list: true},
+        {amount: '2 cloves', name: 'garlic'},
+        {amount: '¼ teaspoon', name: 'salt'},
+      ],
+      instructions: [
+        'Cook the wild rice according to package directions. Meanwhile, make the dressing by pureeing all the dressing ingredients in a food processor. When the rice is done, toss it with a little bit of the dressing and refrigerate. Let it rest for a little while so it takes on the flavors of the dressing (I let it chill completely, but you wouldnt have to do that).',
+        'Preheat the oven to 350 degrees. Place the sweet potato pieces directly on a baking sheet. Drizzle with the oil and sprinkle with the chili powder, salt, and pepper. Stir directly on the pan to get everything mixed. Roast for 20-25 minutes, stirring every so often to keep from burning. When the sweet potatoes are golden brown on the outside, remove from the oven and set aside.',
+        'Toss the arugula, wild rice, sweet potatoes, cashews, and the remaining dressing together. Serve warm or cold. YUM.'
       ]
     },
     {
